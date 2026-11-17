@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How it works · AutoMate</title>
+<meta name="description" content="How AutoMate records trips over your vehicle's Bluetooth, logs fill-ups from payment notifications, learns your mileage and keeps your data on your phone.">
+<meta name="theme-color" content="#0F111A">
+<meta name="color-scheme" content="dark">
+<meta property="og:title" content="How it works · AutoMate">
+<meta property="og:description" content="How AutoMate records trips over your vehicle's Bluetooth, logs fill-ups from payment notifications, learns your mileage and keeps your data on your phone.">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <a class="logo" href="./"><img src="img/logo.svg" alt="" width="32" height="32">AutoMate</a>
+  <nav class="links" aria-label="Main">
+    <a href="index.html#features">Features</a><a href="how-it-works.html" aria-current="page">How it works</a><a href="setup.html">Setup</a><a href="faq.html">FAQ</a>
+    <a class="btn pri" href="index.html#get">Get the app</a>
+  </nav>
+</header>
+<main id="main" class="doc">
+<h1>How AutoMate works</h1>
+<p class="lead">What happens behind the scenes, so you know what to expect and why AutoMate asks for what it asks.</p>
+<ul class="toc"><li><a href="#trips">Trips</a></li><li><a href="#places">Places and tags</a></li><li><a href="#fuel">Fuel from payments</a></li><li><a href="#mileage">Mileage</a></li><li><a href="#fastag">FASTag</a></li><li><a href="#garage">Garage</a></li><li><a href="#data">Your data</a></li></ul>
+
+<h2 id="trips"><span class="badge" style="--tone:var(--blue)"><svg class="ico" aria-hidden="true"><use href="img/icons.svg#route"/></svg></span>Trips start and end on their own</h2>
+<p>Your vehicle's Bluetooth is the trigger. A car stereo or hands-free kit connects when you start the car and drops when you switch off, so it says reliably when <i>this</i> vehicle is being driven, not a bus or a friend's car.</p>
+<ul>
+  <li><b>Start:</b> your phone connects to the vehicle's Bluetooth; recording starts once you move, even with AutoMate closed.</li>
+  <li><b>End:</b> about 15 seconds after you've parked and the Bluetooth link is gone, or when you walk away. AutoMate remembers where you parked.</li>
+  <li><b>Short stops:</b> drive off within 15 minutes from the same spot, say after a fuel stop, and it's still one trip.</li>
+  <li><b>Scooters</b> whose Bluetooth doesn't stay connected are recognised by their signal instead.</li>
+  <li><b>On the trip page:</b> the route, city and highway split, speed, stops, a replay, and what the drive cost.</li>
+</ul>
+<div class="shot"><figure class="phone"><div class="scr"><img src="img/trip.jpg" alt="Trip details with the route on the map" width="450" height="1000" loading="lazy"></div></figure><figure class="phone"><div class="scr"><img src="img/replay.jpg" alt="Trip replay on the map" width="450" height="1000" loading="lazy"></div></figure></div>
+
+<h2 id="places"><span class="badge" style="--tone:var(--blue)"><svg class="ico" aria-hidden="true"><use href="img/icons.svg#place"/></svg></span>Places and tags</h2>
+<p>Save places like Home and Office and trips are named after them (“Home → Office”); other ends get their area name. Tag trips (Office, Weekend, your own); once you've tagged a route the same way a few times, new trips on it tag themselves, marked ✨. Wrong? Remove it and tell AutoMate never to tag that route.</p>
+
+<h2 id="fuel"><span class="badge" style="--tone:var(--amber)"><svg class="ico" aria-hidden="true"><use href="img/icons.svg#local-gas-station"/></svg></span>Fill-ups from your payments</h2>
+<p>With <b>Read payment notifications</b> on, AutoMate reads payment alerts from your SMS, UPI and bank apps as they arrive, on the phone.</p>
+<ul>
+  <li>A payment to a fuel pump turns into a fill-up with the amount filled in; one tap to save.</li>
+  <li>When the payee's name doesn't say what it was, AutoMate looks at where the vehicle stopped. Your saved places and spots it has learned come first; a paid Google lookup is the last resort, and its answer is remembered.</li>
+  <li>Payments that aren't for the vehicle are skipped. Nothing counts as spend until you log it.</li>
+  <li>You choose what notifies you (fuel by default); everything else waits quietly under the bell.</li>
+</ul>
+<div class="shot"><figure class="phone"><div class="scr"><img src="img/payment-notification.jpg" alt="A notification: ₹1,500 at Fictional Fuels, with Log as fuel" width="450" height="1000" loading="lazy"></div></figure><figure class="phone"><div class="scr"><img src="img/fuel-form.jpg" alt="The fill-up form, filled in from the payment" width="450" height="1000" loading="lazy"></div></figure></div>
+
+<h2 id="mileage"><span class="badge" style="--tone:var(--green)"><svg class="ico" aria-hidden="true"><use href="img/icons.svg#speed"/></svg></span>Mileage you can trust</h2>
+<p>You enter the mileage you really get, for the city and the highway, not the brochure figure. AutoMate prices each trip from its own city and highway kilometres. After three fill-ups and a full tank agree, it starts fine-tuning your figure, at most 5% at a time, and shows every change. Switch it off any time.</p>
+
+<h2 id="fastag"><span class="badge" style="--tone:var(--violet)"><svg class="ico" aria-hidden="true"><use href="img/icons.svg#toll"/></svg></span>FASTag</h2>
+<p>Toll and FASTag parking alerts are logged on their own, with the plaza and balance, and matched to the trip they happened on. When the balance runs low you get a heads-up. FASTag is for cars, so it's hidden for bikes and scooters.</p>
+
+<h2 id="garage"><span class="badge" style="--tone:var(--amber)"><svg class="ico" aria-hidden="true"><use href="img/icons.svg#build"/></svg></span>Garage and reminders</h2>
+<p>Log each service with its bill or job card (scan it with the camera). Set reminders by date, kilometres or both for service, PUC, insurance and tyres; overdue items turn red.</p>
+
+<h2 id="data"><span class="badge" style="--tone:var(--blue)"><svg class="ico" aria-hidden="true"><use href="img/icons.svg#lock"/></svg></span>Your data</h2>
+<p>Everything stays on your phone; there's no account and no cloud. An optional app lock uses your fingerprint or face. To move phones, export one <code>.automate</code> file and restore it on the new phone. Details in <a href="privacy.html">Privacy</a>.</p>
+
+</main>
+<footer class="foot">
+  <a class="logo" href="./"><img src="img/logo.svg" alt="" width="32" height="32">AutoMate</a>
+  <nav aria-label="Footer"><a href="how-it-works.html">How it works</a><a href="setup.html">Setup</a><a href="faq.html">FAQ</a><a href="privacy.html">Privacy</a><a href="delete-data.html">Delete your data</a><a href="terms.html">Terms</a><a href="mailto:hello@getautomate.in">hello@getautomate.in</a></nav>
+  <p class="legal">© 2026 AutoMate · App icon based on <a href="https://fontawesome.com">Font Awesome</a> (CC BY 4.0) · Feature icons: Material Icons (Apache 2.0) · Google Play and the Google Play logo are trademarks of Google LLC.</p>
+</footer>
+</body>
+</html>
