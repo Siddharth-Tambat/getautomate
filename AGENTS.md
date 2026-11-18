@@ -31,8 +31,8 @@ design spec and screenshots tooling live in the private `vt` repository (`Siddha
    `gitleaks git --redact` if it's installed.
 10. **Voice.** "A mate for your auto": tracks trips and spending automatically, easy to set up, no extra device.
    Plain, friendly, exact (vt `docs/design/brand/personality.md`). Sentence case, no exclamation marks.
-11. **Pricing** (owner, 18 Nov 2026): first 99 trips free, then ₹999 once for life or ₹69 a month, through Google
-   Play. Launch offer: lifetime ₹799 (20% off) until 31 Dec 2026, 23:59 IST; `site.js` hides the offer after that
+11. **Pricing** (owner, 18 Nov 2026): three plans. Free: first 99 trips, and Expenses, fuel, FASTag and Garage always;
+   trips after 99 are saved but locked. Monthly ₹69 or Lifetime ₹999 once, through Google Play, unlock all trips. Launch offer: lifetime ₹799 (20% off) until 31 Dec 2026, 23:59 IST; `site.js` hides the offer after that
    and the static HTML must then be changed back to ₹999 only. Prices appear in the home pricing section, FAQ and
    Terms; change them together and only to match the Play Console.
 
