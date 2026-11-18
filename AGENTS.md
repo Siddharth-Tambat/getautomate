@@ -26,11 +26,19 @@ design spec and screenshots tooling live in the private `vt` repository (`Siddha
 7. **No maker name.** The brand is "AutoMate"; contact is hello@getautomate.in.
 8. **Google Play.** Until the app is live, the Play badge is a label ("Coming soon"), not a link. When it's live,
    link it to the listing and use Google's official badge.
-9. **Secrets and personal data never go in commits** (keys, tokens, real plates, phone numbers, locations).
+9. **Public repo: secrets and personal data never go in commits** (keys, tokens, names, emails, real plates, phone
+   numbers, locations, screenshots from a real phone). Check `git diff --cached` before every commit; run
+   `gitleaks git --redact` if it's installed.
+10. **Voice.** "A mate for your auto": tracks trips and spending automatically, easy to set up, no extra device.
+   Plain, friendly, exact (vt `docs/design/brand/personality.md`). Sentence case, no exclamation marks.
+11. **Pricing** (owner, 18 Nov 2026): first 99 trips free, then ₹999 once for life or ₹69 a month, through Google
+   Play. Launch offer: lifetime ₹799 (20% off) until 31 Dec 2026, 23:59 IST; `site.js` hides the offer after that
+   and the static HTML must then be changed back to ₹999 only. Prices appear in the home pricing section, FAQ and
+   Terms; change them together and only to match the Play Console.
 
 ## Layout
-- `site/index.html` home (design A, 17 Nov 2026): hero, Trips and Fuel bands, feature cards, screenshots, get the
-  app, contact.
+- `site/index.html` home (design A, 17 Nov 2026): hero, Trips and Fuel bands, feature cards, screenshots, pricing
+  (`#pricing`), get the app, contact.
 - `site/how-it-works.html`, `setup.html`, `faq.html`, `privacy.html` (Play's privacy policy URL),
   `delete-data.html` (Play's data deletion), `terms.html`, `404.html`.
 - `site/img/icons.svg` sprite: the Material Icons the app uses (Apache 2.0) plus the app's toll-booth icon.
@@ -38,6 +46,12 @@ design spec and screenshots tooling live in the private `vt` repository (`Siddha
 - Header and footer are repeated in every page; change them in all pages together.
 
 ## Git
-Personal GitHub account `Siddharth-Tambat` only (`gh auth switch --user Siddharth-Tambat`). Commit identity:
-`Siddharth Tambat <83575017+Siddharth-Tambat@users.noreply.github.com>`. Conventional Commits, small. Push to `main`
-only when the owner says so; `main` deploys to getautomate.in.
+The owner's personal GitHub account only, never a work account: check `gh auth status` and switch before any push or
+`gh` call. Commit identity: the GitHub noreply address set in `git config --local` (same as the vt repo).
+Conventional Commits, small. Push to `main` only when the owner says so; `main` deploys to getautomate.in.
+
+## Repository settings (public repo, keep them)
+Set 18 Nov 2026; don't loosen without the owner's yes. Only the owner has write access. Ruleset "Protect main":
+no force-push, no deletion. The `github-pages` environment deploys from `main` only. Fork pull requests wait for
+approval to run workflows (all outside contributors). Actions: GitHub-owned only, pinned by full SHA. Default
+workflow token is read-only. Wiki and projects off. Secret scanning, push protection and Dependabot alerts on.
