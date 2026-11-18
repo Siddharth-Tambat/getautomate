@@ -137,6 +137,65 @@ h2 { font-size: 40px; letter-spacing: -.02em; margin: 0 0 8px; line-height: 1.15
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .offer-over [data-offer] { display: none !important; }
 
+/* Wide pages: pricing and roadmap */
+.page { max-width: 1104px; margin: 0 auto; padding: 56px var(--margin) 0; }
+.page h1 { font-size: 48px; letter-spacing: -.02em; line-height: 1.1; margin: 0 0 12px; }
+.page .lead { font-size: 19px; color: var(--soft); margin: 0 0 32px; max-width: 720px; }
+.page .pt { font-size: 30px; letter-spacing: -.01em; margin: 72px 0 16px; }
+.page .faq { max-width: 760px; }
+.page .faq p { color: var(--soft); }
+.cmp-wrap { overflow-x: auto; border-radius: var(--r-m); background: var(--surface); }
+.cmp { width: 100%; border-collapse: collapse; font-size: 15px; }
+.cmp th, .cmp td { padding: 14px 16px; border-bottom: 1px solid #ffffff0d; text-align: center; vertical-align: middle; }
+.cmp thead th { font-weight: 600; color: var(--text); font-size: 15px; border-bottom-color: #ffffff1a; }
+.cmp thead th.best { color: var(--blue-text); }
+.cmp tbody th { text-align: left; font-weight: 500; color: var(--soft); }
+.cmp tr:last-child > * { border-bottom: 0; }
+.cmp td svg { width: 20px; height: 20px; color: var(--green); vertical-align: middle; }
+.cmp .note { color: var(--muted); font-size: 14px; }
+.cmp .sum td { font-weight: 700; font-size: 18px; }
+.cmp .sum small { display: block; font-weight: 400; font-size: 13px; color: var(--muted); }
+.cmp .sum s { display: block; font-weight: 400; font-size: 13px; color: var(--muted); }
+.price-teaser .sub b { color: var(--text); font-weight: 600; }
+.price-teaser .side { align-items: flex-start; }
+.price-teaser + .get { margin-top: var(--gap); }
+.price-teaser .lbl { margin: 0 0 -6px; font-size: 13px; color: var(--muted); }
+.rm .grid { list-style: none; padding: 0; margin: 0; }
+.rm .sub { margin-bottom: 20px; }
+.rm-ask { margin-top: 72px; max-width: none; }
+
+/* Motion: everything is visible without JS; site.js adds .reveal, then .in when a block scrolls into view. */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1); }
+.reveal.in { opacity: 1; transform: none; }
+.card, .price-card { transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease; }
+.card:hover, .price-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px #0006; }
+.price-card.best:hover { box-shadow: inset 0 0 0 2px var(--blue), 0 12px 32px #0006; }
+.btn, .cta, .play { transition: background-color .2s ease, transform .2s ease; }
+.btn:hover { transform: translateY(-1px); }
+.btn.pri:hover { background: var(--blue-text); }
+.strip .phone { transition: transform .25s ease; }
+.strip .phone:hover { transform: translateY(-6px); }
+.hero-phones .phone { animation: rise .9s cubic-bezier(.2,.7,.2,1) both; }
+.hero-phones .phone:nth-child(2) { animation-delay: .15s; }
+@keyframes rise { from { opacity: 0; translate: 0 40px; } to { opacity: 1; translate: 0 0; } }
+
+/* Hero demo: a copy of the app's real payment notification (demo data) drops in over the trip phone. */
+.notif { position: absolute; z-index: 3; left: 26%; top: 54px; width: 300px; display: grid; grid-template-columns: 36px 1fr; gap: 12px;
+  padding: 14px 16px; border-radius: 22px; background: color-mix(in srgb, var(--high) 92%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 0 0 1px #ffffff14, 0 18px 40px #000a; font-size: 13px; line-height: 1.35; animation: notif 7s 1.2s cubic-bezier(.2,.7,.2,1) infinite both; }
+.notif img { border-radius: 50%; }
+.notif small { display: block; color: var(--muted); font-size: 11px; }
+.notif b { display: block; font-weight: 500; font-size: 14px; margin-top: 2px; }
+.notif span { display: block; color: var(--soft); }
+.notif em { display: flex; gap: 16px; font-style: normal; color: var(--blue-text); margin-top: 8px; }
+.notif i { font-style: normal; }
+@keyframes notif { 0% { opacity: 0; transform: translateY(-24px) scale(.96); } 8%, 70% { opacity: 1; transform: none; } 78%, 100% { opacity: 0; transform: translateY(-16px) scale(.98); } }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .hero-phones .phone, .notif { animation: none; }
+  .card:hover, .price-card:hover, .btn:hover, .strip .phone:hover { transform: none; }
+}
+
 /* Get the app + contact */
 .get { max-width: 1104px; margin: var(--section) auto 0; border-radius: var(--r-l); padding: 48px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: center; }
 .get .sub { margin: 0; }
@@ -150,7 +209,8 @@ h2 { font-size: 40px; letter-spacing: -.02em; margin: 0 0 8px; line-height: 1.15
 /* Phone frame around a screenshot (demo data only). */
 .phone { width: 240px; aspect-ratio: 9 / 20; border-radius: 30px; background: #05060A; padding: 8px; box-shadow: 0 0 0 1px #2A2F3C, 0 18px 40px #0008; flex: none; position: relative; margin: 0; }
 .phone .scr { height: 100%; border-radius: 23px; background: var(--bg); overflow: hidden; position: relative; }
-.phone .scr > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.phone picture { display: contents; }
+.phone .scr img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; }
 .phone figcaption { position: absolute; inset: auto 0 -28px 0; text-align: center; font-size: 13px; color: var(--muted); }
 .strip .phone { width: 220px; }
 
@@ -216,6 +276,7 @@ h2 { font-size: 40px; letter-spacing: -.02em; margin: 0 0 8px; line-height: 1.15
   .hero-phones .phone { width: 180px; }
   .hero-phones .phone:nth-child(1) { left: 14px; }
   .hero-phones .phone:nth-child(2) { left: auto; right: 10px; }
+  .notif { left: 8px; right: 8px; width: auto; top: 18px; }
   .trust { justify-content: flex-start; }
   h2 { font-size: 30px; }
   .sub { font-size: 16px; margin-bottom: 20px; }
@@ -238,6 +299,16 @@ h2 { font-size: 40px; letter-spacing: -.02em; margin: 0 0 8px; line-height: 1.15
   .foot nav { justify-content: flex-start; gap: 12px 20px; }
   .foot nav a { min-height: 32px; display: inline-flex; align-items: center; }
   .doc { padding-top: 32px; }
+  .page { padding-top: 32px; }
+  .cmp { font-size: 13px; }
+  .cmp th, .cmp td { padding: 12px 6px; }
+  .cmp tbody th { padding-left: 14px; width: 38%; }
+  .cmp thead th { font-size: 13px; }
+  .cmp .sum td { font-size: 15px; }
+  .cmp td svg { width: 18px; height: 18px; }
+  .page h1 { font-size: 36px; }
+  .page .pt { font-size: 24px; margin-top: 48px; }
+  .rm-ask { margin-left: 0; margin-right: 0; }
   .doc h1 { font-size: 36px; }
   .shot .phone { width: calc(50% - 10px); max-width: 200px; }
   .perm td:first-child { width: 40%; }

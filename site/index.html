@@ -10,17 +10,84 @@
 <meta property="og:title" content="AutoMate · a mate for your auto">
 <meta property="og:description" content="AutoMate is a mate for your auto: it tracks your car, bike or scooter's trips and spending on its own. Easy to set up, no extra device, no account. Your first 99 trips are free.">
 <meta property="og:type" content="website">
+<link rel="canonical" href="https://getautomate.in/">
+<meta property="og:url" content="https://getautomate.in/">
+<meta property="og:site_name" content="AutoMate">
+<meta property="og:locale" content="en_IN">
+<meta property="og:image" content="https://getautomate.in/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AutoMate: a mate for your auto. Trips and spending, tracked on your Android phone.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://getautomate.in/#org",
+   "name": "AutoMate",
+   "url": "https://getautomate.in/",
+   "logo": "https://getautomate.in/apple-touch-icon.png",
+   "email": "hello@getautomate.in"
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://getautomate.in/#site",
+   "name": "AutoMate",
+   "url": "https://getautomate.in/",
+   "publisher": {
+    "@id": "https://getautomate.in/#org"
+   },
+   "inLanguage": "en-IN"
+  },
+  {
+   "@type": "MobileApplication",
+   "name": "AutoMate",
+   "operatingSystem": "Android 12 or newer",
+   "applicationCategory": "TravelApplication",
+   "description": "A mate for your auto: tracks your car, bike or scooter's trips and spending on its own. Automatic trips over Bluetooth, fuel from payment notifications, mileage, FASTag tolls, expenses and service reminders. No extra device, no account.",
+   "url": "https://getautomate.in/",
+   "image": "https://getautomate.in/apple-touch-icon.png",
+   "publisher": {
+    "@id": "https://getautomate.in/#org"
+   },
+   "offers": [
+    {
+     "@type": "Offer",
+     "name": "Free: first 99 trips",
+     "price": "0",
+     "priceCurrency": "INR"
+    },
+    {
+     "@type": "Offer",
+     "name": "Monthly",
+     "price": "69",
+     "priceCurrency": "INR"
+    },
+    {
+     "@type": "Offer",
+     "name": "Lifetime",
+     "price": "999",
+     "priceCurrency": "INR"
+    }
+   ]
+  }
+ ]
+}
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="nav">
   <a class="logo" href="./"><img src="img/logo.svg" alt="" width="32" height="32">AutoMate</a>
   <nav class="links" aria-label="Main">
-    <a href="index.html#features">Features</a><a href="how-it-works.html">How it works</a><a href="setup.html">Setup</a><a href="faq.html">FAQ</a>
+    <a href="index.html#features">Features</a><a href="how-it-works.html">How it works</a><a href="setup.html">Setup</a><a href="pricing.html">Pricing</a><a href="faq.html">FAQ</a>
     <a class="btn pri" href="index.html#get">Get the app</a>
   </nav>
 </header>
@@ -34,8 +101,12 @@
     <p class="fine">First 99 trips free · Android 12 or newer · no account</p>
   </div>
   <div class="hero-phones">
-    <figure class="phone"><div class="scr"><img src="img/home.jpg" alt="Home screen: 7.2 km this week, ₹2,139 spent in November, 15.9 km/L, FASTag ₹1,256 and the next service" width="450" height="1000"></div></figure>
-    <figure class="phone"><div class="scr"><img src="img/trip.jpg" alt="Trip details: a 60.5 km drive from Lonavala to Home on the map, with speed, mileage and cost" width="450" height="1000"></div></figure>
+    <figure class="phone"><div class="scr"><picture><source srcset="img/home.webp" type="image/webp"><img src="img/home.jpg" alt="Home screen: 7.2 km this week, ₹2,139 spent in November, 15.9 km/L, FASTag ₹1,256 and the next service" width="450" height="1000"></picture></div></figure>
+    <figure class="phone"><div class="scr"><picture><source srcset="img/trip.webp" type="image/webp"><img src="img/trip.jpg" alt="Trip details: a 60.5 km drive from Lonavala to Home on the map, with speed, mileage and cost" width="450" height="1000"></picture></div></figure>
+    <div class="notif" aria-hidden="true">
+      <img src="img/logo.svg" alt="" width="36" height="36">
+      <div><small>AutoMate · now</small><b>₹1,500 at Fictional Fuels</b><span>Your active vehicle</span><em>Log as fuel<i>Not a vehicle spend</i></em></div>
+    </div>
   </div>
 </div>
 
@@ -60,8 +131,8 @@
     </ul>
   </div>
   <div class="pair">
-    <figure class="phone"><div class="scr"><img src="img/trip-cost.jpg" alt="Trip cost: fuel ₹331, FASTag ₹95 and parking ₹50, and the route split into city and highway" width="450" height="1000" loading="lazy"></div></figure>
-    <figure class="phone"><div class="scr"><img src="img/replay.jpg" alt="Trip replay: the car moving along the route at 69 km/h, 26.8 km done" width="450" height="1000" loading="lazy"></div></figure>
+    <figure class="phone"><div class="scr"><picture><source srcset="img/trip-cost.webp" type="image/webp"><img src="img/trip-cost.jpg" alt="Trip cost: fuel ₹331, FASTag ₹95 and parking ₹50, and the route split into city and highway" width="450" height="1000" loading="lazy"></picture></div></figure>
+    <figure class="phone"><div class="scr"><picture><source srcset="img/replay.webp" type="image/webp"><img src="img/replay.jpg" alt="Trip replay: the car moving along the route at 69 km/h, 26.8 km done" width="450" height="1000" loading="lazy"></picture></div></figure>
   </div>
 </section>
 
@@ -78,8 +149,8 @@
     </ul>
   </div>
   <div class="pair">
-    <figure class="phone"><div class="scr"><img src="img/expenses.jpg" alt="Expenses tab: ₹2,139 spent in November, mostly fuel, with 17.1 L at 16.8 km/L" width="450" height="1000" loading="lazy"></div></figure>
-    <figure class="phone"><div class="scr"><img src="img/mileage.jpg" alt="Mileage page: 16.8 km/L estimated from 22 trips, ₹6.18 per km" width="450" height="1000" loading="lazy"></div></figure>
+    <figure class="phone"><div class="scr"><picture><source srcset="img/expenses.webp" type="image/webp"><img src="img/expenses.jpg" alt="Expenses tab: ₹2,139 spent in November, mostly fuel, with 17.1 L at 16.8 km/L" width="450" height="1000" loading="lazy"></picture></div></figure>
+    <figure class="phone"><div class="scr"><picture><source srcset="img/mileage.webp" type="image/webp"><img src="img/mileage.jpg" alt="Mileage page: 16.8 km/L estimated from 22 trips, ₹6.18 per km" width="450" height="1000" loading="lazy"></picture></div></figure>
   </div>
 </section>
 
@@ -102,42 +173,21 @@
   <div class="strip-wrap">
     <div class="arrows" hidden><button type="button" data-dir="-1" aria-label="Previous screenshots">‹</button><button type="button" data-dir="1" aria-label="Next screenshots">›</button></div>
     <ul class="strip">
-      <li><figure class="phone"><div class="scr"><img src="img/home.jpg" alt="Home: km this week, monthly spend, mileage, FASTag balance and the next service" width="450" height="1000" loading="lazy"></div><figcaption>Home</figcaption></figure></li><li><figure class="phone"><div class="scr"><img src="img/trips.jpg" alt="Trips tab: 190 km this month across 22 drives, with the list of drives" width="450" height="1000" loading="lazy"></div><figcaption>Trips</figcaption></figure></li><li><figure class="phone"><div class="scr"><img src="img/trip.jpg" alt="Trip details: route from Lonavala to Home on the map, 60.5 km, ₹476" width="450" height="1000" loading="lazy"></div><figcaption>Trip details</figcaption></figure></li><li><figure class="phone"><div class="scr"><img src="img/expenses.jpg" alt="Expenses tab: ₹2,139 spent in November, split into fuel, tolls and parking" width="450" height="1000" loading="lazy"></div><figcaption>Expenses</figcaption></figure></li><li><figure class="phone"><div class="scr"><img src="img/fastag.jpg" alt="FASTag page: balance card, tolls and parking by month" width="450" height="1000" loading="lazy"></div><figcaption>FASTag</figcaption></figure></li><li><figure class="phone"><div class="scr"><img src="img/garage.jpg" alt="Garage: next service due in 12 days, and the service history" width="450" height="1000" loading="lazy"></div><figcaption>Garage</figcaption></figure></li><li><figure class="phone"><div class="scr"><img src="img/mileage.jpg" alt="Mileage page: 16.8 km/L estimated, priced at your city and highway figures" width="450" height="1000" loading="lazy"></div><figcaption>Mileage</figcaption></figure></li><li><figure class="phone"><div class="scr"><img src="img/to-review.jpg" alt="To review: a ₹1,500 fuel payment waiting, with Log as fuel" width="450" height="1000" loading="lazy"></div><figcaption>Payments to review</figcaption></figure></li><li><figure class="phone"><div class="scr"><img src="img/settings.jpg" alt="Settings: vehicles, automatic trips, places, mileage, payment notifications" width="450" height="1000" loading="lazy"></div><figcaption>Settings</figcaption></figure></li>
+      <li><figure class="phone"><div class="scr"><picture><source srcset="img/home.webp" type="image/webp"><img src="img/home.jpg" alt="Home: km this week, monthly spend, mileage, FASTag balance and the next service" width="450" height="1000" loading="lazy"></picture></div><figcaption>Home</figcaption></figure></li><li><figure class="phone"><div class="scr"><picture><source srcset="img/trips.webp" type="image/webp"><img src="img/trips.jpg" alt="Trips tab: 190 km this month across 22 drives, with the list of drives" width="450" height="1000" loading="lazy"></picture></div><figcaption>Trips</figcaption></figure></li><li><figure class="phone"><div class="scr"><picture><source srcset="img/trip.webp" type="image/webp"><img src="img/trip.jpg" alt="Trip details: route from Lonavala to Home on the map, 60.5 km, ₹476" width="450" height="1000" loading="lazy"></picture></div><figcaption>Trip details</figcaption></figure></li><li><figure class="phone"><div class="scr"><picture><source srcset="img/expenses.webp" type="image/webp"><img src="img/expenses.jpg" alt="Expenses tab: ₹2,139 spent in November, split into fuel, tolls and parking" width="450" height="1000" loading="lazy"></picture></div><figcaption>Expenses</figcaption></figure></li><li><figure class="phone"><div class="scr"><picture><source srcset="img/fastag.webp" type="image/webp"><img src="img/fastag.jpg" alt="FASTag page: balance card, tolls and parking by month" width="450" height="1000" loading="lazy"></picture></div><figcaption>FASTag</figcaption></figure></li><li><figure class="phone"><div class="scr"><picture><source srcset="img/garage.webp" type="image/webp"><img src="img/garage.jpg" alt="Garage: next service due in 12 days, and the service history" width="450" height="1000" loading="lazy"></picture></div><figcaption>Garage</figcaption></figure></li><li><figure class="phone"><div class="scr"><picture><source srcset="img/mileage.webp" type="image/webp"><img src="img/mileage.jpg" alt="Mileage page: 16.8 km/L estimated, priced at your city and highway figures" width="450" height="1000" loading="lazy"></picture></div><figcaption>Mileage</figcaption></figure></li><li><figure class="phone"><div class="scr"><picture><source srcset="img/to-review.webp" type="image/webp"><img src="img/to-review.jpg" alt="To review: a ₹1,500 fuel payment waiting, with Log as fuel" width="450" height="1000" loading="lazy"></picture></div><figcaption>Payments to review</figcaption></figure></li><li><figure class="phone"><div class="scr"><picture><source srcset="img/settings.webp" type="image/webp"><img src="img/settings.jpg" alt="Settings: vehicles, automatic trips, places, mileage, payment notifications" width="450" height="1000" loading="lazy"></picture></div><figcaption>Settings</figcaption></figure></li>
     </ul>
   </div>
 </section>
 
-<section class="section" id="pricing" aria-labelledby="pricing-h">
-  <h2 id="pricing-h">Simple pricing</h2>
-  <p class="sub">Start free. Only trips after your first 99 need a plan; everything else stays free.</p>
-  <div class="offer wash" data-offer>
-    <p>Launch offer: 20% off lifetime<small>Ends 31 December 2026</small></p>
+<section class="get wash price-teaser" id="pricing" aria-labelledby="pricing-h">
+  <div>
+    <h2 id="pricing-h">Free for your first 99 trips</h2>
+    <p class="sub">Expenses, fuel, FASTag and Garage stay free for good. For every trip after 99: <b>₹69 a month</b>, or <b>₹<span data-offer>799</span><span data-full hidden>999</span> once</b> for life<span data-offer> (launch price, was ₹999)</span>.</p>
+  </div>
+  <div class="side">
+    <p class="lbl" data-offer>Launch price ends in</p>
     <div class="count" role="timer" aria-label="Time left in the launch offer" data-count hidden></div>
+    <a class="btn pri" href="pricing.html">See pricing</a>
   </div>
-  <div class="plans">
-    <div class="price-card">
-      <h3 class="plan">Free</h3>
-      <p class="price"><b>₹0</b></p>
-      <p class="per">No card, no account</p>
-      <ul class="ticks"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>First 99 trips</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Expenses, fuel, FASTag and Garage, always free</li><li class="locked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Trips after 99 are saved, locked until you pick a plan</li></ul>
-      <span class="cta">Coming soon</span>
-    </div>
-    <div class="price-card">
-      <h3 class="plan">Monthly</h3>
-      <p class="price"><b>₹69</b><span>/ month</span></p>
-      <p class="per">Billed monthly through Google Play</p>
-      <ul class="ticks"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Unlimited trips</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Cancel any time in Google Play</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>No ads</li></ul>
-      <span class="cta">Coming soon</span>
-    </div>
-    <div class="price-card best">
-      <h3 class="plan">Lifetime <span class="tag blue">Best value</span><span class="tag save" data-offer>Save 20%</span></h3>
-      <p class="price"><b data-offer>₹799</b><s data-offer><span class="sr">was </span>₹999</s><b data-full hidden>₹999</b><span>once</span></p>
-      <p class="per">Pay once, yours for life</p>
-      <ul class="ticks"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Unlimited trips</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Restores on a new phone through Google Play</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>No ads, no subscription</li></ul>
-      <span class="cta pri">Coming soon</span>
-    </div>
-  </div>
-  <p class="fineprint">Prices in Indian rupees, including taxes. Bought and managed in Google Play.</p>
 </section>
 
 <section class="get wash" id="get" aria-labelledby="get-h">
@@ -164,7 +214,7 @@
 </main>
 <footer class="foot">
   <a class="logo" href="./"><img src="img/logo.svg" alt="" width="32" height="32">AutoMate</a>
-  <nav aria-label="Footer"><a href="how-it-works.html">How it works</a><a href="setup.html">Setup</a><a href="faq.html">FAQ</a><a href="privacy.html">Privacy</a><a href="delete-data.html">Delete your data</a><a href="terms.html">Terms</a><a href="mailto:hello@getautomate.in">hello@getautomate.in</a></nav>
+  <nav aria-label="Footer"><a href="how-it-works.html">How it works</a><a href="setup.html">Setup</a><a href="pricing.html">Pricing</a><a href="roadmap.html">Roadmap</a><a href="faq.html">FAQ</a><a href="privacy.html">Privacy</a><a href="delete-data.html">Delete your data</a><a href="terms.html">Terms</a><a href="mailto:hello@getautomate.in">hello@getautomate.in</a></nav>
   <p class="made">Made with <svg class="heart" viewBox="0 0 24 24" role="img" aria-label="love"><path fill="currentColor" d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.8 4.5c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.8 0 5.9 3.9 4.4 7.3C19.5 16.4 12 21 12 21z"/></svg> in India <svg class="flag" viewBox="0 0 30 20" role="img" aria-label="Indian flag"><rect width="30" height="20" fill="#FFFFFF"/><rect width="30" height="6.67" fill="#FF671F"/><rect y="13.33" width="30" height="6.67" fill="#046A38"/><circle cx="15" cy="10" r="2.6" fill="none" stroke="#06038D" stroke-width=".7"/><circle cx="15" cy="10" r=".6" fill="#06038D"/></svg></p>
   <p class="legal">© 2026 AutoMate · App icon based on <a href="https://fontawesome.com">Font Awesome</a> (CC BY 4.0) · Feature icons: Material Icons (Apache 2.0) · Google Play and the Google Play logo are trademarks of Google LLC.</p>
 </footer>

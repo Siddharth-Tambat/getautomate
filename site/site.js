@@ -36,4 +36,13 @@
     const timer = setInterval(tick, 1000);
     tick();
   }
+  // Fade blocks in as they scroll into view. Skipped when the visitor prefers reduced motion.
+  if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const seen = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); seen.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.band, .section, .get, .contact, .doc > h2, .card, .price-card').forEach((el) => {
+      if (el.getBoundingClientRect().top > innerHeight) { el.classList.add('reveal'); seen.observe(el); }
+    });
+  }
 })();
