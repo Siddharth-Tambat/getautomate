@@ -39,8 +39,18 @@ design spec and screenshots tooling live in the private `vt` repository (`Siddha
 ## Layout
 - `site/index.html` home (design A, 17 Nov 2026): hero, Trips and Fuel bands, feature cards, screenshots, pricing
   (`#pricing`), get the app, contact.
+- `site/pricing.html` (plan cards, comparison table, pricing FAQ; must match vt `docs/design/pricing-plan.md`),
+  `roadmap.html` (public "Coming next" / "Exploring"; only items the owner has agreed to show, no dates).
 - `site/how-it-works.html`, `setup.html`, `faq.html`, `privacy.html` (Play's privacy policy URL),
   `delete-data.html` (Play's data deletion), `terms.html`, `404.html`.
+- SEO: every page has a canonical URL, Open Graph + Twitter tags and the share image `img/og.jpg` (1200×630);
+  JSON-LD on `index.html` (Organization, WebSite, MobileApplication with the three prices) and `faq.html`
+  (FAQPage, built from the page's questions; regenerate it when questions change). `sitemap.xml` lists every page
+  but 404 (the check enforces it), `robots.txt`, `manifest.webmanifest`. Screenshots ship as WebP in `<picture>`
+  with the JPEG as fallback; make both (`cwebp -q 80`).
+- Motion (`site.js` + `style.css`): blocks fade up on scroll, cards lift on hover, the hero phones rise in and a
+  copy of the app's real payment notification (demo data) drops in. All off under `prefers-reduced-motion`, and
+  everything is visible without JavaScript.
 - `site/img/icons.svg` sprite: the Material Icons the app uses (Apache 2.0) plus the app's toll-booth icon.
 - `site/img/logo.svg`, `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png`: the app's car icon.
 - Header and footer are repeated in every page; change them in all pages together.
