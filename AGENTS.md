@@ -36,6 +36,11 @@ design spec and screenshots tooling live in the private `vt` repository (`Siddha
    and the static HTML must then be changed back to ₹999 only. Prices appear in the home pricing section, FAQ and
    Terms; change them together and only to match the Play Console.
 
+12. **Few indexed pages** (owner, 18 Nov 2026). Google indexing was requested for four URLs: `/`, `pricing.html`,
+   `how-it-works.html`, `faq.html` (sitemap submitted in Search Console the same day). Put new content into these
+   four pages first. Add a page only when it truly needs its own URL; then add it to `sitemap.xml` and tell the
+   owner to request indexing for it in Search Console (URL inspection → Request indexing).
+
 ## Layout
 - `site/index.html` home (design A, 17 Nov 2026): hero, Trips and Fuel bands, feature cards, screenshots, pricing
   (`#pricing`), get the app, contact.
