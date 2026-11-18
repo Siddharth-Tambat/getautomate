@@ -76,6 +76,12 @@ def main(root: Path) -> int:
             if u.fragment and target in parsed and u.fragment not in parsed[target].ids:
                 errors.append(f"{name}: missing anchor {ref}")
 
+    sitemap = root / "sitemap.xml"
+    listed = sitemap.read_text() if sitemap.exists() else ""
+    for name in pages:
+        if name != "404.html" and f"getautomate.in/{'' if name == 'index.html' else name}<" not in listed:
+            errors.append(f"sitemap.xml: missing {name}")
+
     cname = root / "CNAME"
     if not cname.exists() or cname.read_text().strip() != "getautomate.in":
         errors.append("CNAME must contain getautomate.in")

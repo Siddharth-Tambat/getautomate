@@ -1,0 +1,21 @@
+{
+ "name": "AutoMate",
+ "short_name": "AutoMate",
+ "description": "A mate for your auto.",
+ "start_url": "/",
+ "display": "browser",
+ "background_color": "#0F111A",
+ "theme_color": "#0F111A",
+ "icons": [
+  {
+   "src": "favicon.svg",
+   "sizes": "any",
+   "type": "image/svg+xml"
+  },
+  {
+   "src": "apple-touch-icon.png",
+   "sizes": "180x180",
+   "type": "image/png"
+  }
+ ]
+}
