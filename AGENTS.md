@@ -12,7 +12,7 @@ design spec and screenshots tooling live in the private `vt` repository (`Siddha
 2. **Dark brand only.** Colours are the app's tokens, mirrored in `:root` of `site/style.css`; the source of truth is
    vt's `docs/design/brand/`. One brand blue `#3B82F6` for actions; meaning colours only where they mean something
    (amber fuel/service, violet FASTag, green mileage/good); WCAG AA; never colour alone. The only outside colours
-   are the Google Play logo's own. No new hex values without the owner's yes.
+   are the Google Play logo's own and the small Indian flag in the footer (official colours). No new hex values without the owner's yes.
 3. **Nothing the app doesn't really do.** Every claim, screenshot and policy line must match the shipping app.
    Check the vt code before changing copy. The privacy policy, Delete your data and the FAQ must stay in step with
    the app's permissions, Google services used and payment-notification rules (vt `ui/alerts/AGENTS.md`,
