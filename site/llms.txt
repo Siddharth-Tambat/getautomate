@@ -1,0 +1,31 @@
+# AutoMate
+
+> AutoMate is an Android app for Indian car, bike and scooter owners: a mate for your auto. It tracks trips and vehicle spending on its own, using only the phone (no extra device, no account). Data stays on the phone; there are no AutoMate servers. Coming soon to Google Play (app ID `in.getautomate.app`), Android 12 or newer.
+
+Key facts:
+
+- Trips start and end automatically when the phone connects to and disconnects from the vehicle's Bluetooth (car stereo, hands-free kit or the scooter's own Bluetooth). GPS route, stops, replay, city and highway split, and trip cost. Trips can also be started by hand.
+- Fuel fill-ups, FASTag tolls and other vehicle payments are picked up from payment notifications (SMS, UPI, bank and FASTag apps, Gmail previews) on the phone. AutoMate has no SMS permission.
+- Also: mileage (km/L) for city and highway, expenses, garage log with service reminders (date or km), PUC and insurance reminders, and a `.automate` backup file to move to a new phone.
+- FASTag features are for cars only; everything else works for bikes and scooters.
+- Pricing: the first 99 trips are free, and expenses, fuel, FASTag and Garage are always free. Trips after 99 are saved but locked until a plan is bought through Google Play: ₹69 a month, or ₹999 once for life (launch price ₹799 until 31 December 2026). No ads.
+- Privacy: no account, no analytics, no ads. Maps, addresses and some place lookups use Google services.
+- Made in India. Contact: hello@getautomate.in
+
+## Main pages
+
+- [Home](https://getautomate.in/): what AutoMate does, screenshots and how to get it
+- [How it works](https://getautomate.in/how-it-works.html): automatic trips, places and tags, fuel from payments, mileage, FASTag, garage, your data
+- [Setup guide](https://getautomate.in/setup.html): install, add a vehicle, turn on automatic trips and payment notifications
+- [Pricing](https://getautomate.in/pricing.html): Free, Monthly and Lifetime plans, comparison table and pricing questions
+- [FAQ](https://getautomate.in/faq.html): common questions about trips, fuel, privacy, bikes and moving phones
+
+## Policies
+
+- [Privacy policy](https://getautomate.in/privacy.html): what the app stores, what goes to Google, payment notifications and permissions
+- [Delete your data](https://getautomate.in/delete-data.html): how to delete some or all data
+- [Terms of use](https://getautomate.in/terms.html)
+
+## Optional
+
+- [Roadmap](https://getautomate.in/roadmap.html): features being built and ideas being explored, without dates
