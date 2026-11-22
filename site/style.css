@@ -25,6 +25,8 @@ code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .85em; 
 /* Corner wash in the colour of what the block shows (14%: keeps muted text at AA). */
 .wash { background: linear-gradient(135deg, color-mix(in srgb, var(--tone, var(--blue)) 14%, transparent), transparent 65%), var(--surface); }
 .ico { width: 22px; height: 22px; flex: none; fill: currentColor; }
+/* Icon symbols live inline in each page (an external <use> fails from file:// and some caches). */
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
 
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 22px; border-radius: 999px; font-weight: 500; font-size: 15px; text-decoration: none; }
 .btn.pri { background: var(--blue); color: var(--bg); }
@@ -79,7 +81,7 @@ h2 { font-size: 40px; letter-spacing: -.02em; margin: 0 0 8px; line-height: 1.15
 .band { max-width: 1200px; margin: 0 auto; padding: var(--section) var(--margin) 0; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
 .band.flip > .txt { order: 2; }
 .band .sub { margin-bottom: 0; }
-.pair { display: flex; gap: 20px; justify-content: center; }
+.pair { display: flex; gap: 20px; justify-content: center; align-items: flex-start; }
 .pair .phone:nth-child(2) { margin-top: 48px; }
 .checks { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 12px; }
 .checks li { display: flex; gap: 12px; color: var(--soft); }
@@ -207,8 +209,8 @@ h2 { font-size: 40px; letter-spacing: -.02em; margin: 0 0 8px; line-height: 1.15
 .contact ul { margin: 12px 0 0; padding-left: 20px; color: var(--soft); }
 
 /* Phone frame around a screenshot (demo data only). */
-.phone { width: 240px; aspect-ratio: 9 / 20; border-radius: 30px; background: #05060A; padding: 8px; box-shadow: 0 0 0 1px #2A2F3C, 0 18px 40px #0008; flex: none; position: relative; margin: 0; }
-.phone .scr { height: 100%; border-radius: 23px; background: var(--bg); overflow: hidden; position: relative; }
+.phone { width: 240px; border-radius: 30px; background: #05060A; padding: 8px; box-shadow: 0 0 0 1px #2A2F3C, 0 18px 40px #0008; flex: none; position: relative; margin: 0; }
+.phone .scr { aspect-ratio: 9 / 20; border-radius: 23px; background: var(--bg); overflow: hidden; position: relative; }
 .phone picture { display: contents; }
 .phone .scr img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; }
 .phone figcaption { position: absolute; inset: auto 0 -28px 0; text-align: center; font-size: 13px; color: var(--muted); }
@@ -257,6 +259,9 @@ h2 { font-size: 40px; letter-spacing: -.02em; margin: 0 0 8px; line-height: 1.15
 .faq details > :not(summary) { margin: 0; padding: 0 20px 16px; }
 
 @media (max-width: 1000px) {
+  /* Two 240px phones don't fit half a row here: they share the column instead of spilling past the edge. */
+  .band { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .pair .phone { width: calc(50% - 10px); max-width: 240px; }
   .plans { grid-template-columns: 1fr; max-width: 560px; }
 }
 @media (max-width: 900px) {

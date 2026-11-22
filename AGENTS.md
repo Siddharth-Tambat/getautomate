@@ -57,7 +57,9 @@ design spec and screenshots tooling live in the private `vt` repository (`Siddha
 - Motion (`site.js` + `style.css`): blocks fade up on scroll, cards lift on hover, the hero phones rise in and a
   copy of the app's real payment notification (demo data) drops in. All off under `prefers-reduced-motion`, and
   everything is visible without JavaScript.
-- `site/img/icons.svg` sprite: the Material Icons the app uses (Apache 2.0) plus the app's toll-booth icon.
+- `site/img/icons.svg` sprite: the Material Icons the app uses (Apache 2.0) plus the app's toll-booth icon. Pages
+  inline the symbols they use in a hidden `<svg class="sprite">` after `<body>` (`<use href="#id">`); copy a symbol
+  from the sprite when a page needs a new one.
 - `site/img/logo.svg`, `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png`: the app's car icon.
 - Header and footer are repeated in every page; change them in all pages together.
 
