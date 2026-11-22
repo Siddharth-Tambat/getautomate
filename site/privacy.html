@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy policy · AutoMate</title>
-<meta name="description" content="AutoMate keeps your data on your phone: no account, no servers, no analytics. What it reads, what goes to Google and why.">
+<meta name="description" content="Your vehicle records stay on your phone. Learn what AutoMate stores and what goes to Google.">
 <meta name="theme-color" content="#0F111A">
 <meta name="color-scheme" content="dark">
 <meta property="og:title" content="Privacy policy · AutoMate">
-<meta property="og:description" content="AutoMate keeps your data on your phone: no account, no servers, no analytics. What it reads, what goes to Google and why.">
+<meta property="og:description" content="Your vehicle records stay on your phone. Learn what AutoMate stores and what goes to Google.">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://getautomate.in/privacy.html">
 <meta property="og:url" content="https://getautomate.in/privacy.html">
@@ -36,28 +36,28 @@
 </header>
 <main id="main" class="doc">
 <h1>Privacy policy</h1>
-<p class="lead">Short version: AutoMate has no account, no servers of its own and no analytics. What you record stays on your phone.</p>
-<p class="updated">Last updated 18 November 2026</p>
+<p class="lead">Your vehicle records and stats stay on your device. AutoMate has no account or servers of its own. Maps, location lookups and purchases use Google services. Maps and document scanning may send technical data to Google. You can delete your local records anytime.</p>
+<p class="updated">Last updated 22 November 2026</p>
 
 <h2 id="who">Who we are</h2>
 <p>This policy covers the AutoMate Android app (<code>in.getautomate.app</code>) and this website, getautomate.in. Questions about privacy: <a href="mailto:hello@getautomate.in">hello@getautomate.in</a>.</p>
 
 <h2 id="stores">What AutoMate stores, and where</h2>
-<p>Your vehicles, trips (routes, distance, times, stops), places you save, fill-ups, tolls, expenses, money received, garage records and reminders, photos and scans of bills and job cards, tags and your settings. All of it is saved in the app's private storage on your phone. Android's cloud backup is switched off for AutoMate, so none of it is copied to your Google account. The developer never receives it.</p>
+<p>Your vehicles, trips (routes, distance, times, stops), places you save, fill-ups, tolls, expenses, money received, garage records and reminders, photos and scans of bills and job cards, tags and your settings. All of it is saved in the app's private storage on your phone. Android's cloud backup is switched off for AutoMate, so none of it is copied to your Google account. AutoMate has no backend for these records.</p>
 
 <h2 id="leaves">What leaves your phone</h2>
-<p>AutoMate has no server, so nothing is sent to the developer. Some features use Google services, and for those the data below goes to Google:</p>
+<p>Some features use Google services, which receive the data described below:</p>
 <ul>
-  <li><b>Maps.</b> Trip maps are drawn with the Google Maps SDK, which downloads map tiles for the area on screen. Google's Maps SDK also sends Google its own diagnostics and usage data.</li>
+  <li><b>Maps.</b> Trip maps are drawn with the Google Maps SDK, which downloads map tiles for the area on screen. The Maps SDK sends Google technical information such as device details, IP address, a Maps identifier and crash metrics. It may also send map interactions such as panning and zooming.</li>
   <li><b>Addresses.</b> To show “Home → Office” instead of coordinates, the start and end of a trip and where you parked are looked up with Android's geocoder, which asks Google.</li>
   <li><b>Road routes.</b> When you add or move a stop on a trip by hand, the points are sent to Google's Routes API to measure the drive between them.</li>
   <li><b>Place search.</b> When you search for a place while editing a trip, what you type and the trip's area are sent to Google Places to suggest matches.</li>
   <li><b>What a payment stop was.</b> When a payment arrives and the payee's name doesn't say what it was, AutoMate checks where the vehicle stood: first your saved places, then spots it has already learned, then the phone's geocoder. Only if none of those can tell does it send that stop's location to Google Places to ask whether it's a fuel pump, garage, car wash or parking. The answer is kept on the phone so the same spot isn't asked twice. The payment itself (amount, payee, message) is never sent.</li>
-  <li><b>Purchases.</b> Buying AutoMate or subscribing goes through Google Play. Google handles the payment; AutoMate only learns from Google Play whether you've bought it, never your card or bank details. As with any Play purchase, Google gives the developer an order record (order number, product, price, date and country).</li>
+  <li><b>Purchases.</b> Buying AutoMate or subscribing goes through Google Play. Google handles the payment; AutoMate checks which products you own and acknowledges purchases through Google Play. AutoMate does not receive your card or bank details. As with any Play purchase, Google gives the developer an order record (order number, product, price, date and country).</li>
   <li><b>Location and activity.</b> Trip recording uses Google Play services' location and activity recognition on the phone.</li>
   <li><b>Document scanner.</b> Scanning a bill or job card uses Google's ML Kit document scanner, which works on the phone; ML Kit may send Google diagnostics about the scanner.</li>
 </ul>
-<p>Google handles this data under the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>. AutoMate adds no other network traffic: no ads, no crash reporting, no analytics, no trackers. All of these requests use encrypted connections (HTTPS).</p>
+<p>Google handles this data under the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>. AutoMate has no developer-operated analytics or advertising. Google SDKs may collect technical and usage information as described above. All of these requests use encrypted connections (HTTPS).</p>
 
 <h2 id="notifications">Payment notifications</h2>
 <p>AutoMate doesn't ask for SMS permission. If you switch on <b>Read payment notifications</b>, Android's <i>Notification access</i> lets it read payment alerts as they arrive, so it can log FASTag tolls and keep other vehicle payments, such as fuel, for you to review. AutoMate shows what it reads and asks you to agree before it opens Android's settings.</p>
