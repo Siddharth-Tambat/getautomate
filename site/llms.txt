@@ -1,6 +1,6 @@
 # AutoMate
 
-> AutoMate is an Android app for Indian car, bike and scooter owners: a mate for your auto. It tracks trips and vehicle spending on its own, using only the phone (no extra device, no account). Data stays on the phone; there are no AutoMate servers. Coming soon to Google Play (app ID `in.getautomate.app`), Android 12 or newer.
+> AutoMate is the simple, smart, private Android app for Indian car, bike and scooter owners: a mate for your auto. It logs every trip and expense automatically using the phone's GPS and Bluetooth (no extra device, no account) and puts the data at your fingertips. Data stays on the phone; there are no AutoMate servers. Coming soon to Google Play (app ID `in.getautomate.app`), Android 12 or newer.
 
 Key facts:
 
