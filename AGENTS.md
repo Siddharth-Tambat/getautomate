@@ -105,3 +105,6 @@ Home has an opening Watch AutoMate button and a portrait preview after the drive
 Pinned summary fit: the desktop information panel has no independent scroller. If the final breakdown exceeds available scene height, `fitSummary` moves the cost breakdown to the existing normal-flow summary below the drive. Recheck after resizing and at short desktop heights; never hide a scrollbar while leaving content clipped.
 
 Combined polish (owner, 23 Nov): trust badges appear directly after the drive/mobile summary and before the video. Shared section spacing is 64px desktop / 40px phone; video padding is 32px desktop / 24px phone, with 24px / 16px before Simple. Document headings and page introductions use tighter shared spacing. Summary fit removes nested desktop scrolling and shows the full breakdown below the drive when necessary. Owner approved deployment after localhost review.
+
+## Asset cache consistency
+GitHub Pages caches CSS/JS for ten minutes. Run `python3 scripts/version-assets.py` after editing assets, before the site check and commit. It updates local CSS/JS references in every HTML page with content hashes. CI runs `--check` to reject stale references, preventing an updated page from loading a prior deployment’s cached stylesheet/script. Do not ask visitors to routinely hard-refresh as the release mechanism.
