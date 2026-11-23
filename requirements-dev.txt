@@ -1,0 +1,2 @@
+# Dev tooling for this repo (not the site). Install with scripts/setup-hooks.sh.
+pre-commit==4.7.0

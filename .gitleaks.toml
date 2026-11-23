@@ -1,0 +1,23 @@
+# gitleaks rules for getautomate (public repo): the built-in rules plus env files and env-style secret assignments.
+title = "getautomate"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "env-file"
+description = "Environment file (.env) committed; only .env.example may be tracked"
+path = '''(^|/)\.env(\.[^/]+)?$'''
+[[rules.allowlists]]
+paths = ['''(^|/)\.env\.example$''']
+
+[[rules]]
+id = "env-style-secret"
+description = "KEY/SECRET/TOKEN/PASSWORD=value line (.env, .properties, shell)"
+regex = '''(?im)^\s*(?:export\s+)?[a-z0-9_.]*(?:api_?key|secret|token|password|passwd|private_?key)[a-z0-9_.]*[ \t]*=[ \t]*([^\s"'#(),$]{12,})[ \t]*$'''
+secretGroup = 1
+entropy = 3.2
+keywords = ["key", "secret", "token", "pass"]
+[[rules.allowlists]]
+regexTarget = "match"
+regexes = ['''(?i)(your[-_]?key|example|placeholder|changeme|dummy|xxxx)''']

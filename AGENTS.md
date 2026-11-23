@@ -29,6 +29,9 @@ design spec and screenshots tooling live in the private `vt` repository (`Siddha
 9. **Public repo: secrets and personal data never go in commits** (keys, tokens, names, emails, real plates, phone
    numbers, locations, screenshots from a real phone). Check `git diff --cached` before every commit; run
    `gitleaks git --redact` if it's installed.
+   Once per clone: `scripts/setup-hooks.sh` (needs `brew install gitleaks`) installs a gitleaks pre-commit hook that blocks
+   any commit with a secret; never bypass it with `--no-verify`. A Claude Code `SessionStart` hook
+   (`.claude/settings.json` → `scripts/check-hooks.sh`) makes the agent set it up if it is missing.
 10. **Voice.** "A mate for your auto": tracks trips and spending automatically, easy to set up, no extra device.
    Plain, friendly, exact (vt `docs/design/brand/personality.md`). Sentence case, no exclamation marks.
 11. **Pricing** (owner, 18 Nov 2026; free limit 50 since 23 Nov): three plans. Free: first 50 trips, and Expenses, fuel, FASTag and Garage always;

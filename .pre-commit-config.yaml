@@ -1,0 +1,20 @@
+# Secret scanning with gitleaks (rules in .gitleaks.toml). Set up once per clone: scripts/setup-hooks.sh
+# Needs the gitleaks binary on PATH (brew install gitleaks).
+default_install_hook_types: [pre-commit, pre-push]
+repos:
+  - repo: local
+    hooks:
+      - id: gitleaks-staged
+        name: gitleaks (staged changes)
+        entry: gitleaks git --pre-commit --staged --redact --no-banner --verbose
+        language: system
+        pass_filenames: false
+        always_run: true
+        stages: [pre-commit]
+      - id: gitleaks-push
+        name: gitleaks (commits being pushed)
+        entry: scripts/gitleaks-push.sh
+        language: script
+        pass_filenames: false
+        always_run: true
+        stages: [pre-push]
