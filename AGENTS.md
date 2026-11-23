@@ -7,7 +7,7 @@ design spec and screenshots tooling live in the private `vt` repository (`Siddha
 
 ## Rules
 1. **Plain static site.** HTML and CSS in `site/`, a few lines of optional JavaScript (`site.js`). No build step, no
-   frameworks, no web fonts, no analytics, no cookies, no third-party scripts or stylesheets. `scripts/check-site.py`
+   frameworks, no web fonts, no analytics, no cookies, no third-party scripts or stylesheets (exception: the owner-approved, click-to-load YouTube overview iframe). `scripts/check-site.py`
    enforces the external-asset part; run it before every commit.
 2. **Dark brand only.** Colours are the app's tokens, mirrored in `:root` of `site/style.css`; the source of truth is
    vt's `docs/design/brand/`. One brand blue `#3B82F6` for actions; meaning colours only where they mean something
@@ -98,3 +98,6 @@ Phones use a fixed compact chapter header, larger map and three tiles, without a
 The full mobile cost breakdown follows the pinned drive in normal page flow; desktop keeps it inline.
 Check both summaries if changing shared values. Check narrow/short viewports, forward/backward scrolling,
 stationary receipt positions and the no-JS fallback before deployment. Pages deploys from main.
+
+## YouTube overview (owner selected A)
+Home has an opening Watch AutoMate button and a portrait preview after the drive, before the promises/features. `video.css` and `video.js` implement a native modal dialog. The local poster uses the fictional trip screenshot as an app preview, not a claimed video frame. Only a click inserts the `youtube-nocookie.com` player for `iyXuofIsjlo`; no autoplay or external thumbnail. Escape/Close removes the iframe and restores focus without scrolling. Keep the optional Watch on YouTube link and privacy-page disclosure in sync. Deployment follows the Pages workflow on main.
