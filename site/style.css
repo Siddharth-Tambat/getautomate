@@ -6,6 +6,17 @@
   --blue: #3B82F6; --blue-text: #93C5FD; --amber: #F59E0B; --green: #22C55E; --red: #EF4444; --violet: #8B5CF6; --violet-text: #C4B5FD;
   --r-s: 12px; --r-m: 20px; --r-l: 28px;
   --gap: 12px; --margin: 48px; --section: 64px;
+  /* Material 3 roles mapped to AutoMate's fixed dark brand palette. */
+  --md-sys-color-primary: var(--blue);
+  --md-sys-color-on-primary: var(--bg);
+  --md-sys-color-on-surface: var(--text);
+  --md-sys-color-on-surface-variant: var(--muted);
+  --md-sys-color-surface: var(--bg);
+  --md-sys-color-surface-container: var(--surface);
+  --md-sys-color-surface-container-high: var(--high);
+  --md-sys-color-outline: var(--border);
+  --md-sys-color-outline-variant: var(--outline);
+  --md-sys-color-error: var(--red);
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
@@ -319,3 +330,11 @@ h2 { font-size: 40px; letter-spacing: -.02em; margin: 0 0 8px; line-height: 1.15
   .perm td:first-child { width: 40%; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Material state layers keep shared controls within the fixed brand system. */
+body{background:var(--md-sys-color-surface);color:var(--md-sys-color-on-surface)}
+.btn.pri{background:var(--md-sys-color-primary);color:var(--md-sys-color-on-primary)}
+.btn.pri:hover{filter:none;background:color-mix(in srgb,var(--text) 8%,var(--md-sys-color-primary))}
+.btn.pri:active{background:color-mix(in srgb,var(--text) 12%,var(--md-sys-color-primary))}
+.btn.out:hover,.nav-video:hover{background:var(--md-sys-color-surface-container-high)}
+:focus-visible{outline:2px solid var(--blue-text);outline-offset:4px}
