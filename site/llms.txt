@@ -8,7 +8,7 @@ Key facts:
 - Fuel fill-ups, FASTag tolls and other vehicle payments are picked up from payment notifications (SMS, UPI, bank and FASTag apps, Gmail previews) on the phone. AutoMate has no SMS permission.
 - Also: mileage (km/L) for city and highway, expenses, garage log with service reminders (date or km), PUC and insurance reminders, and a `.automate` backup file to move to a new phone.
 - FASTag features are for cars only; everything else works for bikes and scooters.
-- Pricing: the first 99 trips are free, and expenses, fuel, FASTag and Garage are always free. Trips after 99 are saved but locked until a plan is bought through Google Play: ₹69 a month, or ₹999 once for life (launch price ₹799 until 31 December 2026). No ads.
+- Pricing: the first 50 trips are free, and expenses, fuel, FASTag and Garage are always free. Trips after 50 are saved but locked until a plan is bought through Google Play: ₹69 a month, or ₹999 once for life (launch price ₹799 until 31 December 2026). No ads.
 - Privacy: no account, no analytics, no ads. Maps, addresses and some place lookups use Google services.
 - Made in India. Contact: hello@getautomate.in
 

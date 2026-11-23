@@ -1,7 +1,7 @@
 # getautomate.in
 
 The website for **AutoMate**, a mate for your auto: an Android app that tracks your car, bike or scooter's trips and
-spending on its own. Easy to set up, no extra device, just your phone. Free for your first 99 trips, with expenses, fuel,
+spending on its own. Easy to set up, no extra device, just your phone. Free for your first 50 trips, with expenses, fuel,
 FASTag and garage always free; then ₹999 once for life or ₹69 a month unlocks every trip. The app itself is closed source and lives in a separate private repository.
 
 - `site/` is the whole website: plain HTML and CSS, no build step, no trackers, no third-party scripts or fonts.
