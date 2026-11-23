@@ -92,3 +92,8 @@
 @media(hover:hover) and (pointer:fine){#home-benefits article:hover{background:var(--md-sys-color-surface-container-high);outline-color:color-mix(in srgb,var(--blue-text) 55%,var(--outline));transform:translateY(-4px)}}
 #home-benefits article:active{background:color-mix(in srgb,var(--blue) 12%,var(--md-sys-color-surface-container-high));transform:translateY(-1px)}
 @media(prefers-reduced-motion:reduce){#home-benefits article{transition:none}#home-benefits article:hover,#home-benefits article:focus-visible,#home-benefits article:active{transform:none}}
+/* Reserve event content from the first frame so milestones never resize the phone. */
+#trip-story .phone .fuel-review{display:block;visibility:hidden;min-height:52px}
+#trip-story .phone .fuel-review.received{visibility:visible}
+#trip-story .live-stats h2{height:94px;min-height:94px;margin:12px 0;overflow-wrap:normal}
+#trip-story .phone .status{min-height:17px}
