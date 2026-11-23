@@ -75,6 +75,26 @@ approval to run workflows (all outside contributors). Actions: GitHub-owned only
 workflow token is read-only. Wiki and projects off. Secret scanning, push protection and Dependabot alerts on.
 
 ## Cinematic trip story (23 Nov 2026)
-Home hero uses `trip-story.css` (scoped to `#trip-story`) and `trip-story.js`, plain SVG/JS without external assets. Start trip then scroll or use chapter buttons: recording, FASTag toll, fuel confirmation, summary. Fictional 42 km / 48 driving minutes; estimated fuel 3.36 L at ₹100/L = ₹336, toll ₹85, trip cost ₹421. Fuel bought ₹2,000 is separate and requires confirmation. No real map coordinates or Google tiles. Keep reduced-motion support, keyboard chapter controls, mobile layout and the estimate/setup disclosures. Deployment follows the repository’s Pages workflow on main.
+Home uses `trip-story.css` (scoped to `#trip-story`) and `trip-story.js`, plain SVG/JS without external assets.
+Owner picked inline B. Scrolling starts and reverses the drive directly; there is no Start/Restart button.
+One sticky scene pins below the 68px desktop / 60px phone header. Its height is the remaining small viewport.
+Grid/flex layout separates the information panel, map and compact Trips-style distance/time/cost tiles.
+The padded SVG route viewBox keeps the car visible. The route finishes at 78% of the scroll section;
+the final 22% holds the completed summary without trapping scroll. Without JS there is no long empty scroll.
 
-Trip story follow-up: owner selected inline B. Information stays on the left, the car uses the existing lighter blue token with a bright outline. Trip summary keeps the large headline and distance typography, with an app-inspired cost card. The route finishes at 78% of the scroll section; the remaining 22% holds the complete summary without trapping scroll. Estimate/demo note is linked by * to the footer; no interstitial disclosure strip.
+Fictional values: 42 km / 48 driving minutes; estimated fuel 3.36 L at ₹100/L = ₹336, toll ₹85, trip cost ₹421.
+Fuel bought ₹2,000 is a separate expense and requires confirmation. No real coordinates or Google tiles.
+Material icons come from the existing sprite (plus a clock); amber fuel and violet toll match the cost bar.
+The local AutoMate logo asset sits inside the map bottom-right. No new palette colours or external brands.
+
+Map receipts fade after 3.2 seconds: toll −₹85; fuel payment then “Expense added” only after confirmation;
+arrival then “Trip logged”. Positions are cached per landmark/map geometry and remain still as the car moves.
+Preferred sides: toll right, fuel left, destination above. Collision checks reserve clearance around the
+entire route, markers and logo. Suppress receipts if a constrained window has no clear position.
+Reduced motion disables receipt transitions. Counter row is transparent; no “Scroll to travel” or star.
+Keep the unstarred estimate/setup disclosure in the footer.
+
+Phones use a fixed compact chapter header, larger map and three tiles, without a nested panel scroller.
+The full mobile cost breakdown follows the pinned drive in normal page flow; desktop keeps it inline.
+Check both summaries if changing shared values. Check narrow/short viewports, forward/backward scrolling,
+stationary receipt positions and the no-JS fallback before deployment. Pages deploys from main.

@@ -1,54 +1,155 @@
-/* Approved design A. Scoped to the interactive home journey. */
-#trip-story {
-position:relative; font:16px/1.5 system-ui,sans-serif;
-
-*{box-sizing:border-box}button{font:inherit;min-height:48px;border:1px solid var(--border);border-radius:28px;padding:10px 20px;background:var(--surface);color:var(--text);cursor:pointer}button:focus-visible{outline:3px solid var(--blue-text);outline-offset:3px}button[aria-pressed=true],.primary{background:var(--blue);color:var(--bg);border-color:var(--blue)}header{position:fixed;z-index:5;top:0;width:100%;padding:20px 5%;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{font-weight:750;font-size:24px;letter-spacing:-1px}.options{display:flex;gap:8px}.options button{padding:8px 16px}.journey-track{height:540vh}.stage{position:sticky;top:0;height:100svh;min-height:700px;overflow:hidden}.map{position:absolute;inset:0;width:100%;height:100%;opacity:.9}.district{fill:var(--surface);stroke:var(--bg);stroke-width:14}.street{fill:none;stroke:var(--outline);stroke-width:6}.minor{filter:blur(1.5px);opacity:.6}.route{fill:none;stroke:var(--blue);stroke-width:7;stroke-linecap:round}.route-shadow{fill:none;stroke:var(--bg);stroke-width:20}.map-label{fill:var(--muted);font-size:13px;letter-spacing:3px}.map-shade{position:absolute;inset:0;background:linear-gradient(90deg,var(--bg),transparent 80%);pointer-events:none}.copy{position:absolute;left:8%;top:22%;width:390px}.eyebrow{color:var(--blue-text);font-size:14px;letter-spacing:2px;text-transform:uppercase}h1{font-size:clamp(44px,5vw,64px);line-height:1.03;letter-spacing:-2px;margin:20px 0}h1 span{color:var(--blue-text)}.desc{color:var(--muted);font-size:19px;max-width:340px;min-height:60px}.event{position:absolute;right:7%;top:19%;width:310px;border:1px solid var(--outline);background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(18px);padding:22px;border-radius:24px;transform:translateY(0);transition:transform .35s,opacity .35s}.event small{color:var(--muted)}.event h2{font-size:22px;line-height:1.25;margin:12px 0}.event p{color:var(--muted);margin-bottom:0}.event .amount{font-size:38px;font-weight:650;letter-spacing:-1px}.tone{color:var(--blue-text)}.bottom{position:absolute;bottom:28px;left:8%;right:7%;display:flex;align-items:end;justify-content:space-between;gap:20px}.stats{display:flex;gap:36px}.stats strong{display:block;font-size:28px;font-weight:550;font-variant-numeric:tabular-nums}.stats small{color:var(--muted);font-size:14px}.steps{display:flex;gap:7px;margin-top:12px}.steps button{height:6px;min-height:16px;width:40px;border:0;padding:0;background:transparent;border-radius:0;border-bottom:3px solid var(--outline)}.steps button.active{border-color:var(--blue)}.hint{font-size:14px;color:var(--muted);margin-top:16px}.summary{display:none;grid-template-columns:1fr auto;gap:10px;margin-top:16px}.summary b{font-weight:500}.summary span{color:var(--muted)}#confirm{display:none;margin-top:16px;width:100%}footer{padding:64px 8%;background:var(--surface)}footer h2{font-size:32px;margin:0}footer p{color:var(--muted);max-width:620px}.design-note{font-size:14px;color:var(--muted)}[data-unused=B] .event{border:5px solid var(--border);border-radius:38px;min-height:400px;padding:30px 24px}[data-unused=B] .event:before{content:'AutoMate · Trip details';font-size:14px;color:var(--muted);display:block;margin-bottom:36px}[data-unused=C] .map{transform:rotate(-12deg) scale(.84);border-radius:80px}[data-unused=C] .event{top:auto;bottom:150px}[data-unused=C] .district{fill:var(--high)}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}@media(max-width:700px){header{padding:16px}.brand{font-size:20px}.options{gap:4px}.options button{padding:8px 13px}.stage{min-height:780px}.copy{top:110px;left:24px;right:24px;width:auto}h1{font-size:48px;letter-spacing:-2px;margin:12px 0}.desc{font-size:16px;min-height:55px;max-width:310px;margin:12px 0}.map{width:170%;left:-55%;height:78%;top:18%}.map-shade{background:linear-gradient(var(--bg) 12%,transparent 60%,var(--bg))}.event{right:24px;left:24px;top:auto;bottom:145px;width:auto;padding:16px}.event h2{font-size:20px;margin:6px 0}.event .amount{font-size:28px}.event p{font-size:14px}.bottom{left:24px;right:24px;bottom:20px}.stats{gap:24px}.stats strong{font-size:22px}.hint{max-width:130px;font-size:12px}[data-unused=B] .event{min-height:0;border-width:2px;border-radius:24px;padding:16px}[data-unused=B] .event:before{margin-bottom:8px}[data-unused=C] .event{bottom:145px}.summary{font-size:14px;gap:4px}#start{padding:8px 20px}footer{padding:40px 24px}}@media(prefers-reduced-motion:reduce){.map #car{display:none}*{transition:none!important}body{scroll-behavior:auto}}
-
-.design-note{display:none}.stage{isolation:isolate}.event{z-index:2}.copy{z-index:2}.bottom{z-index:3}.steps button{min-width:40px;min-height:48px}.map-shade{z-index:1}.bottom{pointer-events:none}.bottom button{pointer-events:auto}
-
-}
-
-.story-note{padding:24px 8%;color:var(--muted);font-size:14px;background:var(--surface)}
-
-#trip-story .eyebrow{background:none;padding:0;border-radius:0;display:block}
-#trip-story .event h2{text-wrap:initial}
-@media(max-width:700px){#trip-story .copy{top:90px}#trip-story h1{font-size:40px;line-height:1.05}#trip-story .desc{min-height:0}#trip-story .event{bottom:155px}#trip-story .stage{min-height:820px}#trip-story .hint{max-width:96px}#trip-story .stats{gap:18px}#trip-story .stats small{font-size:12px}}
-
-@media(max-width:700px){#trip-story .event{bottom:210px}#trip-story .stage[data-chapter="4"] .desc,#trip-story .stage[data-chapter="4"] #start{display:none}#trip-story .stage[data-chapter="4"] h1{font-size:36px}}
-
-/* Owner selected inline layout B; map remains unobstructed. */
-
-
-#trip-story .map{opacity:1}#trip-story #car{filter:drop-shadow(0 2px 3px var(--bg))}#trip-story #car rect{fill:var(--blue-text);stroke:var(--text);stroke-width:3}#trip-story .map-shade{background:linear-gradient(90deg,var(--bg) 20%,transparent 64%)}#trip-story .hint a{color:var(--blue-text)}#trip-story .copy{top:14%;width:340px}#trip-story h1{font-size:44px}#trip-story .desc{font-size:16px;min-height:0}#trip-story .event{left:8%;right:auto;top:auto;bottom:155px;width:340px;padding:16px}#trip-story .event h2{font-size:20px;margin:6px 0}#trip-story .event .amount{font-size:28px}#trip-story .event p{font-size:14px}#trip-story .copy .desc{display:none}#trip-story .copy #start{margin-top:8px}#trip-story .stage[data-chapter="4"] .copy{display:none}#trip-story .stage[data-chapter="4"] .event{bottom:170px}#trip-story .journey-track{height:440vh}.trust{padding-top:28px;padding-bottom:0}#trip-footnote{font-size:14px;color:var(--muted);max-width:760px;margin:0 auto 24px}
-#trip-story .copy{top:12%;left:5%}#trip-story .event{left:5%;top:44%;bottom:auto;width:340px;border:0;background:transparent;backdrop-filter:none;padding:0}#trip-story .event p{max-width:300px}#trip-story .stage[data-chapter="4"] .event{top:22%}
-
-@media(max-width:700px){#trip-story .copy,#trip-story .copy,#trip-story h1{font-size:34px;margin:8px 0}#trip-story .stage{min-height:850px}#trip-story .event,#trip-story .event,#trip-story .event p{font-size:14px}#trip-story .stage[data-chapter="4"] .event{top:auto}#trip-story .stage[data-chapter="4"] .event,}
-
-#trip-story .copy{top:13%;left:5%;width:360px}
-#trip-story .event{left:5%;right:auto;top:45%;bottom:auto;width:360px;border:0;background:none;backdrop-filter:none;padding:0}
-#trip-story .stage[data-chapter="4"] .copy{display:block;top:12%}
-#trip-story .stage[data-chapter="4"] .copy #start{display:none}
-#trip-story .stage[data-chapter="4"] .event{top:42%;bottom:auto}
-#trip-story .event .amount{font-size:38px;line-height:1.2}
-#trip-story .event h2{font-size:22px}
-#trip-story .summary{padding:16px;border-radius:20px;background:var(--surface);font-size:16px;gap:12px}
-#trip-story .summary b{font-size:18px}
-#trip-story .summary span:nth-last-of-type(2),#trip-story .summary b:nth-last-of-type(2){padding-top:8px;border-top:1px solid var(--outline);font-weight:650;color:var(--text)}
-#trip-story .stage[data-chapter="4"] .event>p{font-size:16px}
-#trip-story .journey-track{height:500vh}
-#trip-story .hint a{display:inline-block;min-width:48px;min-height:48px}
+/* One stable pin below the site navigation. All content participates in layout. */
+#trip-story{--nav-height:68px;position:relative;font:16px/1.5 system-ui,sans-serif}
+#trip-story *{box-sizing:border-box}
+#trip-story .journey-track{height:calc(100svh - var(--nav-height))}
+#trip-story.is-ready .journey-track{height:480svh}
+#trip-story .stage{position:sticky;top:var(--nav-height);height:calc(100svh - var(--nav-height));display:grid;grid-template-columns:minmax(300px,38%) 1fr;grid-template-rows:minmax(0,1fr) auto;gap:20px 24px;padding:32px 5% 16px;overflow:hidden;isolation:isolate;background:var(--bg)}
+#trip-story .story-panel{grid-column:1;grid-row:1;align-self:center;min-height:0;max-height:100%;overflow:auto;scrollbar-width:thin;display:flex;flex-direction:column;gap:24px;padding:4px 8px 4px 0}
+#trip-story .copy,#trip-story .event{position:relative;min-width:0}
+#trip-story .eyebrow{display:block;background:none;padding:0;color:var(--blue-text);font-size:13px;letter-spacing:2px;text-transform:uppercase}
+#trip-story h1{font-size:clamp(32px,3.7vw,52px);line-height:1.08;letter-spacing:-1.7px;margin:12px 0 0;text-wrap:initial}
+#trip-story h1 span{color:var(--blue-text)}
+#trip-story .desc,#trip-story .design-note{display:none}
+#trip-story .event small{font-size:13px;color:var(--muted)}
+#trip-story .event h2{font-size:22px;line-height:1.25;margin:8px 0;text-wrap:initial}
+#trip-story .amount{font-size:38px;line-height:1.2;font-weight:650;color:var(--blue-text);letter-spacing:-1px}
+#trip-story .event p{color:var(--muted);font-size:16px;margin:12px 0 0;max-width:360px}
+#trip-story .summary{display:none;grid-template-columns:minmax(0,1fr) auto;gap:12px 16px;margin-top:16px;background:var(--surface);border-radius:20px;padding:16px;font-size:16px}
+#trip-story .summary span{color:var(--muted)}
+#trip-story .summary b{font-size:18px;font-weight:600;white-space:nowrap}
+#trip-story .summary span:nth-last-of-type(2),#trip-story .summary b:nth-last-of-type(2){padding-top:10px;border-top:1px solid var(--outline);color:var(--text);font-weight:650}
+#trip-story .map{position:absolute;right:0;top:0;width:60%;height:100%;z-index:-1;overflow:hidden}
+#trip-story .district{fill:var(--surface);stroke:var(--bg);stroke-width:14}
+#trip-story .street{fill:none;stroke:var(--outline);stroke-width:6}
+#trip-story .minor{filter:blur(1.5px);opacity:.6}
+#trip-story .route{fill:none;stroke:var(--blue);stroke-width:7;stroke-linecap:round}
+#trip-story .route-shadow{fill:none;stroke:var(--bg);stroke-width:20}
+#trip-story .map-label{fill:var(--muted);font-size:13px;letter-spacing:3px}
+#trip-story #car rect{fill:var(--blue-text);stroke:var(--text);stroke-width:3}
+#trip-story #car{filter:drop-shadow(0 2px 3px var(--bg))}
+#trip-story .map-shade{display:none}
+#trip-story .bottom{grid-column:1/-1;grid-row:2;display:flex;align-items:end;justify-content:space-between;gap:16px;position:relative;padding-top:8px;background:transparent}
+#trip-story .stats{display:flex;gap:32px}
+#trip-story .stats strong{display:block;font-size:26px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1.2}
+#trip-story .stats small{font-size:13px;color:var(--muted)}
+#trip-story .steps{display:flex;gap:8px;margin-top:8px}
+#trip-story button{font:inherit;cursor:pointer;min-height:48px}
+#trip-story .steps button{width:40px;border:0;background:none;padding:0;position:relative}
+#trip-story .steps button:after{content:'';position:absolute;left:0;right:0;top:22px;height:3px;background:var(--border)}
+#trip-story .steps button.active:after{background:var(--blue)}
+#trip-story button:focus-visible,#trip-story a:focus-visible{outline:3px solid var(--blue-text);outline-offset:3px}
+#trip-story .primary{background:var(--blue);color:var(--bg);border:0;border-radius:24px;padding:12px 20px;margin-top:16px}
+#trip-story #confirm{display:none}
+#trip-story .hint{color:var(--muted);font-size:14px;flex:none}
+#trip-story .hint a{display:inline-block;min-width:48px;min-height:48px;color:var(--blue-text)}
+#trip-story .sr{position:absolute;width:1px;height:1px;clip-path:inset(50%);overflow:hidden}
+#trip-footnote{grid-column:1/-1;font-size:14px;color:var(--muted);max-width:760px;margin:0 0 16px}
+#trip-story+.trust{padding-top:24px}
 @media(max-width:700px){
-#trip-story .stage{min-height:940px}
-#trip-story .copy,#trip-story .stage[data-chapter="4"] .copy{left:24px;top:90px;width:calc(100% - 48px)}
-#trip-story .event,#trip-story .stage[data-chapter="4"] .event{top:auto;bottom:220px;left:24px;right:24px;width:auto;background:var(--surface);padding:16px;border-radius:20px}
-#trip-story .stage[data-chapter="4"] h1{font-size:34px}
-#trip-story .event .amount{font-size:36px}
-#trip-story .summary{padding:0;background:none;font-size:16px}
-#trip-story .event h2{font-size:22px}
+#trip-story{--nav-height:60px}
+#trip-story .stage{grid-template-columns:1fr;grid-template-rows:auto minmax(100px,1fr) auto;gap:12px;padding:16px 20px 8px}
+#trip-story .story-panel{align-self:start;max-height:55svh;gap:14px;padding:0 4px 0 0}
+#trip-story h1{font-size:30px;letter-spacing:-1px;margin-top:6px}
+#trip-story .event h2{font-size:20px;margin:4px 0}
+#trip-story .amount{font-size:30px}
+#trip-story .event p{font-size:14px;margin-top:6px}
+#trip-story .summary{font-size:14px;gap:8px 12px;margin-top:10px;padding:12px}
+#trip-story .summary b{font-size:16px}
+#trip-story .stage[data-chapter="4"] #eventDescription{display:none}
+#trip-story .map{position:relative;grid-row:2;grid-column:1;z-index:0;width:100%;height:100%;min-height:0;overflow:hidden}
+#trip-story .bottom{grid-row:3;display:block;padding:0}
+#trip-story .stats{justify-content:space-between;gap:12px}
+#trip-story .stats strong{font-size:22px}
+#trip-story .stats small{font-size:12px}
+#trip-story .hint{position:absolute;right:0;bottom:0;font-size:12px}
+#trip-story .hint a{min-width:24px;min-height:24px}
+#trip-story .steps{gap:4px;margin:0}
+#trip-story .steps button{width:30px}
 }
-#trip-story .stage[data-chapter="4"] .event{top:34%;bottom:auto}
-@media(max-width:700px){#trip-story .stage[data-chapter="4"] .event{top:auto;bottom:220px}}
+@media(max-height:650px) and (min-width:701px){#trip-story .stage{padding-top:16px;gap:8px}#trip-story .story-panel{gap:14px}#trip-story h1{font-size:32px}#trip-story .summary{gap:6px;padding:12px}#trip-story .event p{margin-top:8px}}
+@media(prefers-reduced-motion:reduce){#trip-story .map #car{display:none}}
 
-/* Without JavaScript, show the introduction without a multi-screen empty scroll area. */
-#trip-story .journey-track{height:100svh}
-#trip-story.is-ready .journey-track{height:500vh}
+/* Small Material-style accents, using the same meaning colours as the app. */
+#trip-story .story-icon{width:20px;height:20px;fill:currentColor;flex:none}
+#trip-story .event-heading{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+#trip-story .event-icon,#trip-story .stat-icon{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;color:var(--blue-text);background:color-mix(in srgb,var(--blue) 12%,var(--bg));flex:none}
+#trip-story .stage[data-chapter="2"] .event-icon{color:var(--violet-text);background:color-mix(in srgb,var(--violet) 12%,var(--bg))}
+#trip-story .stage[data-chapter="3"] .event-icon{color:var(--amber);background:color-mix(in srgb,var(--amber) 12%,var(--bg))}
+#trip-story .stage[data-chapter="4"] .event-icon{color:var(--green);background:color-mix(in srgb,var(--green) 12%,var(--bg))}
+#trip-story .stat-item{display:flex;align-items:center;gap:10px;min-width:0}
+#trip-story .cost-icon{color:var(--soft);background:var(--surface)}
+#trip-story .cost-heading{grid-column:1/-1;display:flex;align-items:center;gap:10px;color:var(--text)}
+#trip-story .cost-heading>.story-icon{color:var(--soft)}
+#trip-story .cost-split{grid-column:1/-1;display:flex;height:7px;border-radius:4px;overflow:hidden;gap:2px;margin:0 0 4px}
+#trip-story .cost-split i:first-child{width:79.81%;background:var(--amber)}
+#trip-story .cost-split i:last-child{flex:1;background:var(--violet)}
+#trip-story .cost-label{display:flex;align-items:center;gap:8px}
+#trip-story .cost-label .story-icon{width:18px;height:18px;color:var(--soft)}
+#trip-story .local-gas-station-label .story-icon{color:var(--amber)}
+#trip-story .toll-label .story-icon{color:var(--violet-text)}
+#trip-story .summary{border:1px solid var(--outline)}
+@media(max-width:700px){#trip-story .stat-item{gap:6px}#trip-story .stat-icon{width:24px;height:24px}#trip-story .stat-icon .story-icon{width:16px;height:16px}#trip-story .stats small{font-size:11px}#trip-story .stats strong{font-size:20px}#trip-story .stats{gap:8px}#trip-story .cost-label{gap:6px}}
+#trip-story .story-panel{gap:18px}
+#trip-story .event-heading{margin-bottom:4px}
+#trip-story .summary{gap:10px 14px;padding:14px;margin-top:12px}
+#trip-story .event p{margin-top:8px}
+@media(max-width:700px){#trip-story .story-panel{gap:12px}#trip-story .summary{gap:8px 10px;padding:12px}}
+
+/* Compact, quiet tiles matching the Trips page structure. */
+#trip-story .stats{gap:12px}
+#trip-story .stat-item{display:grid;grid-template-columns:20px minmax(0,1fr);grid-template-rows:auto auto;gap:4px 8px;align-items:center;min-width:150px;padding:12px 16px;border-radius:16px;background:color-mix(in srgb,var(--blue) 7%,var(--surface))}
+#trip-story .stat-icon{grid-row:1;width:20px;height:20px;background:none;border-radius:0}
+#trip-story .stat-content{display:contents}
+#trip-story .stats strong{grid-column:2;grid-row:1;font-size:24px}
+#trip-story .stats small{grid-column:1/-1;grid-row:2;font-size:13px}
+#trip-story .stat-item:last-child{background:var(--surface)}
+#trip-story .stat-item:last-child .stat-icon{background:none}
+#trip-story .map-decorations{position:absolute;inset:0;pointer-events:none;z-index:2;overflow:hidden}
+#trip-story .map-brand{position:absolute;display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);padding:4px 8px;background:color-mix(in srgb,var(--bg) 88%,transparent);border-radius:10px;white-space:nowrap}
+#trip-story .map-notice{position:absolute;display:flex;gap:10px;align-items:center;width:max-content;max-width:240px;padding:12px 14px;border:1px solid var(--outline);border-radius:16px;background:var(--surface);color:var(--text);opacity:0;transform:translateY(6px);transition:opacity .24s ease,transform .24s ease}
+#trip-story .map-notice.visible{opacity:1;transform:translateY(0)}
+#trip-story .map-notice strong{display:block;font-size:15px;font-weight:600;line-height:1.3}
+#trip-story .map-notice small{display:block;font-size:13px;color:var(--muted);margin-top:3px}
+#trip-story .notice-icon{color:var(--blue-text);display:flex}
+#trip-story .map-notice[data-tone=toll] .notice-icon{color:var(--violet-text)}
+#trip-story .map-notice[data-tone=fuel] .notice-icon{color:var(--amber)}
+#trip-story .map-notice[data-tone=saved] .notice-icon{color:var(--green)}
+@media(max-width:700px){#trip-story .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}#trip-story .stat-item{min-width:0;padding:10px 8px;grid-template-columns:16px minmax(0,1fr);gap:5px}#trip-story .stat-icon{width:16px;height:16px}#trip-story .stats strong{font-size:19px}#trip-story .stats small{font-size:11px}#trip-story .map-notice{padding:8px 10px;max-width:210px}#trip-story .map-notice strong{font-size:14px}#trip-story .map-brand{font-size:12px}}
+@media(prefers-reduced-motion:reduce){#trip-story .map-notice{transition:none;transform:none}}
+
+/* Phone layout: a compact stage header, generous map, and a full summary after the drive. */
+.mobile-trip-summary{display:none}
+@media(max-width:700px){
+#trip-story .stage{grid-template-rows:210px minmax(140px,1fr) auto;gap:10px;padding:14px 16px 8px}
+#trip-story .story-panel{align-self:start;max-height:none;height:210px;overflow:visible;gap:8px;padding:0}
+#trip-story h1{font-size:26px;line-height:1.08;margin-top:6px;letter-spacing:-.7px}
+#trip-story .eyebrow{font-size:12px}
+#trip-story .event-heading{display:none}
+#trip-story .event h2{font-size:18px;margin:2px 0 4px}
+#trip-story .amount{font-size:26px}
+#trip-story .event p{display:none}
+#trip-story .primary{margin-top:8px;min-height:48px;padding:10px 16px;font-size:14px}
+#trip-story .summary{display:none!important}
+#trip-story .map{border-radius:20px;background:var(--surface)}
+#trip-story .map-brand{font-size:11px}
+#trip-story .stats small{font-size:11px}
+#trip-story .steps{justify-content:center}
+#trip-story .map-notice{width:164px;max-width:164px;min-height:66px}
+#trip-story .map-notice strong{font-size:13px}
+#trip-story .map-notice small{font-size:12px}
+.mobile-trip-summary{display:block;margin:0 16px 24px;padding:20px;border-radius:20px;background:var(--surface)}
+.mobile-trip-summary h2{font-size:24px;margin:0 0 4px}
+.mobile-trip-summary p{color:var(--muted);margin:0 0 16px;font-size:14px}
+.mobile-trip-summary .summary{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;font-size:14px}
+.mobile-trip-summary .story-icon{width:18px;height:18px;fill:currentColor;flex:none}
+.mobile-trip-summary .cost-heading,.mobile-trip-summary .cost-split{grid-column:1/-1}
+.mobile-trip-summary .cost-heading,.mobile-trip-summary .cost-label{display:flex;align-items:center;gap:8px}
+.mobile-trip-summary .local-gas-station-label{color:var(--amber)}
+.mobile-trip-summary .toll-label{color:var(--violet-text)}
+.mobile-trip-summary .cost-split{display:flex;height:6px;gap:2px;overflow:hidden;border-radius:3px}
+.mobile-trip-summary .cost-split i:first-child{width:79.81%;background:var(--amber)}
+.mobile-trip-summary .cost-split i:last-child{flex:1;background:var(--violet)}
+}
+@media(max-width:700px) and (max-height:700px){#trip-story .stage{grid-template-rows:176px minmax(100px,1fr) auto;padding-top:10px}#trip-story .story-panel{height:176px}#trip-story h1{font-size:23px}#trip-story .copy .eyebrow{display:none}}
+#trip-story .map-notice{width:220px;min-height:76px}
+@media(max-width:700px){#trip-story .map-notice{width:164px;min-height:66px}}
