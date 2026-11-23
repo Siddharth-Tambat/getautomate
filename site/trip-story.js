@@ -1,20 +1,5 @@
-/* Scroll updates draw only the current frame; no external dependencies. */
-(()=>{
-if(!document.getElementById('trip-story'))return;
-
-const route=document.getElementById('routeDraw'),carNode=document.getElementById('car'),routeLength=route.getTotalLength();let fuelConfirmed=false,lastChapter=-1,pendingFrame=false;route.style.strokeDasharray=routeLength;
-const stories=[['A drive, remembered','Just drive.<br><span>We’ll remember.</span>','The route. The toll. The fuel stop.<br>One drive, brought together.','YOUR NEXT DRIVE','Ready when you are.','0.0 km','Scroll to follow the drive. No buttons needed.'],['TRIP RECORDING','The road unfolds.<br><span>So does your story.</span>','As you drive, AutoMate records your route, distance and driving time.','TRIP IN PROGRESS','Every kilometre, kept.','Recording','A route takes shape as you travel.'],['FASTAG PAYMENT','Through the toll.<br><span>Into the trip.</span>','A supported bank or payment notification links the toll to your trip.','FASTAG · PAYMENT NOTIFICATION','Toll added to this drive.','₹85','A toll payment, linked to the trip running at that time.'],['FUEL STOP','A little pause.<br><span>A fuller tank.</span>','A payment alert helps fill the fuel form. You confirm the amount and litres.','FUEL · TO CONFIRM','Stopped for fuel.','₹2,000','20 litres at ₹100/litre. This purchase is an expense, not the fuel used by this trip.'],['TRIP SAVED','One drive.<br><span>The whole picture.</span>','Route, driving time and costs—together when you finish the trip.','TRIP SUMMARY','Home to Lakeside','42.0 km','48 minutes driving · 3.36 litres estimated fuel used. Scroll when you’re ready.']];
-function geometry(){
-  const track=document.getElementById('journey');
-  const stage=document.querySelector('#trip-story .stage');
-  const inset=parseFloat(getComputedStyle(stage).top)||0;
-  return {start:track.getBoundingClientRect().top+scrollY-inset,travel:Math.max(1,track.offsetHeight-stage.offsetHeight)};
-}
-function progress(){const {start,travel}=geometry();return Math.max(0,Math.min(1,(scrollY-start)/travel));}
-function jump(value){const {start,travel}=geometry();window.scrollTo({top:start+value*.78*travel,behavior:'instant'});paint();}
-// Brief, honest map receipts: fuel is saved only after the confirmation action.
-let previousProgress=0,noticeAt=0,noticeTimer,arrivalTimer;
-const notice=document.getElementById('mapNotice');
+(()=>{if(!document.getElementById("trip-story"))return;let arrivalTimer;const routeLength=document.getElementById("routeDraw").getTotalLength();const track=document.querySelector('.drive-track'),stage=document.querySelector('#trip-story .drive-stage'),route=document.getElementById('routeDraw'),car=document.getElementById('car');const length=route.getTotalLength();route.style.strokeDasharray=length;let pending=false;
+let mapPreviousProgress=0,mapNoticeTimer;const notice=document.getElementById('mapNotice');
 const noticePositions=new Map();
 function placeDecorations(){
   const stage=document.querySelector('#trip-story .stage').getBoundingClientRect();
@@ -62,39 +47,24 @@ function placeDecorations(){
 
 }
 function showNotice(at,icon,title,detail,tone){
-  clearTimeout(noticeTimer);clearTimeout(arrivalTimer);noticeAt=at;
+  clearTimeout(mapNoticeTimer);clearTimeout(arrivalTimer);
   document.getElementById('noticeIcon').innerHTML='<svg class="story-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#story-'+icon+'"></use></svg>';
   document.getElementById('noticeTitle').textContent=title;
   document.getElementById('noticeDetail').textContent=detail;
   notice.dataset.tone=tone;notice.classList.add('visible');placeDecorations();
-  noticeTimer=setTimeout(()=>notice.classList.remove('visible'),3200);
+  mapNoticeTimer=setTimeout(()=>notice.classList.remove('visible'),3200);
 }
 function mapEvents(p){
   p=Math.round(p*1000)/1000;
-  if(p<previousProgress-.01){notice.classList.remove('visible');clearTimeout(arrivalTimer);clearTimeout(noticeTimer);}
-  else if(p>=1&&previousProgress<1){
+  if(p<mapPreviousProgress-.01){notice.classList.remove('visible');clearTimeout(arrivalTimer);clearTimeout(mapNoticeTimer);}
+  else if(p>=1&&mapPreviousProgress<1){
     showNotice(1,'place','Destination reached','Home to Lakeside','saved');
     arrivalTimer=setTimeout(()=>showNotice(1,'receipt-long','Trip logged','42 km · 48 min · ₹421 estimated','saved'),1200);
-  }else if(p>=.7&&previousProgress<.7){showNotice(.7,'local-gas-station','₹2,000 · Fuel payment',fuelConfirmed?'Expense added':'Confirm to add expense','fuel');}
-  else if(p>=.45&&previousProgress<.45){showNotice(.45,'toll','−₹85 · FASTag toll','Added to this trip','toll');}
-  previousProgress=p;placeDecorations();
-  if(progress()>=1){notice.classList.remove('visible');clearTimeout(arrivalTimer);}
+  }else if(p>=.7&&mapPreviousProgress<.7){showNotice(.7,'local-gas-station','₹2,000 · Fuel detected','AutoMate found a fuel payment · To review','fuel');}
+  else if(p>=.45&&mapPreviousProgress<.45){showNotice(.45,'toll','−₹85 · Toll detected','AutoMate linked this toll to your trip','toll');}
+  mapPreviousProgress=p;placeDecorations();
 }
-let fittedLayout='';
-function fitSummary(chapter){
-  const key=chapter+':'+innerWidth+':'+innerHeight;
-  if(key===fittedLayout)return;
-  fittedLayout=key;
-  const root=document.getElementById('trip-story');
-  root.classList.remove('summary-below');
-  if(chapter!==4||innerWidth<=700)return;
-  const stage=root.querySelector('.stage'),panel=root.querySelector('.story-panel'),bottom=root.querySelector('.bottom');
-  const style=getComputedStyle(stage);
-  const available=stage.clientHeight-parseFloat(style.paddingTop)-parseFloat(style.paddingBottom)-bottom.offsetHeight-parseFloat(style.rowGap);
-  root.classList.toggle('summary-below',panel.scrollHeight>available);
-}
-function paint(){pendingFrame=false;const raw=progress()/.78;const p=raw>=.9995?1:Math.min(1,raw);const pos=route.getPointAtLength(p*routeLength),ahead=route.getPointAtLength(Math.min(routeLength,p*routeLength+2)),behind=route.getPointAtLength(Math.max(0,p*routeLength-2));const angle=Math.atan2(ahead.y-behind.y,ahead.x-behind.x)*180/Math.PI+90;carNode.setAttribute('transform',`translate(${pos.x} ${pos.y}) rotate(${angle})`);route.style.strokeDashoffset=routeLength*(1-p);const chapter=p<.08?0:p<.36?1:p<.6?2:p<1?3:4;document.querySelector('#trip-story .stage').dataset.chapter=chapter;const ids=['chapter','headline','description','eventLabel','eventTitle','eventAmount','eventDescription'];if(chapter!==lastChapter){ids.forEach((id,i)=>document.getElementById(id).innerHTML=stories[chapter][i]);document.getElementById('announcement').textContent=stories[chapter][4];const eventIcons=['route','route','toll','local-gas-station','receipt-long'];document.querySelector('#eventIcon use').setAttribute('href','#story-'+eventIcons[chapter]);lastChapter=chapter}document.getElementById('distance').textContent=(p*42).toFixed(1);document.getElementById('duration').textContent=Math.round(p*48);document.getElementById('cost').textContent='₹'+(Math.round(p*336)+(p>=.36?85:0));document.getElementById('eventAmount').style.color=chapter===2?'var(--violet-text)':chapter===3?'var(--amber)':'var(--blue-text)';document.getElementById('confirm').style.display=chapter===3&&!fuelConfirmed?'block':'none';document.getElementById('summary').style.display=chapter===4?'grid':'none';if(chapter===3&&fuelConfirmed){document.getElementById('eventTitle').textContent='Fuel entry confirmed.';document.getElementById('eventDescription').textContent='₹2,000 fuel purchase saved to Expenses. Scroll to finish the trip.'}document.querySelectorAll('.steps button').forEach((b,i)=>b.classList.toggle('active',i===chapter));fitSummary(chapter);mapEvents(p);}
-document.querySelectorAll('#trip-story [data-progress]').forEach(button=>button.addEventListener('click',()=>jump(Number(button.dataset.progress))));
-document.getElementById('confirm').onclick=()=>{fuelConfirmed=true;showNotice(.7,'local-gas-station','Fuel expense added','₹2,000 saved to Expenses','fuel');paint()};addEventListener('scroll',()=>{if(!pendingFrame){pendingFrame=true;requestAnimationFrame(paint)}});addEventListener('resize',paint);document.getElementById('trip-story').classList.add('is-ready');paint();
-
+function text(id,value){document.getElementById(id).textContent=value}
+function update(){pending=false;if(matchMedia('(max-width:700px)').matches)return;const rect=track.getBoundingClientRect();const range=track.offsetHeight-stage.offsetHeight;const raw=Math.max(0,Math.min(1,(parseFloat(getComputedStyle(stage).top)-rect.top)/Math.max(1,range)));const p=Math.min(1,raw/.8);const done=p>=.999;const paid=p>=.44;const refuel=p>=.7;document.getElementById('fuelReview').classList.toggle('received',refuel);document.getElementById('historyFuel').classList.toggle('logged',refuel);const km=(p*42).toFixed(1),mins=Math.round(p*48),fuel=Math.round(p*336),cost=fuel+(paid?85:0);text('demo-km',km);text('demo-time',mins);text('demo-cost','₹'+cost);text('demo-fuel','₹'+fuel);text('demo-toll',paid?'₹85':'₹0');text('sideKm',km+' km');text('sideTime',mins+' min');text('sideCost','₹'+cost);mapEvents(p);text('appstatus',done?'Trip saved':'Recording trip');text('sideTitle',done?'Your drive, all together.':refuel?'A fuel stop, remembered.':paid?'A toll, taken care of.':'Your trip is recording.');text('phase',done?'04 / 04 · Trip saved':refuel?'03 / 04 · Fuel payment':paid?'02 / 04 · FASTag toll':'01 / 04 · Recording');document.getElementById('log').firstElementChild.textContent=done?'Trip saved · 42 km':refuel?'Fuel entry ready to review':paid?'FASTag payment added':'Recording your drive';document.getElementById('historyToll').classList.toggle('logged',paid);document.getElementById('historySaved').classList.toggle('logged',done);document.getElementById('progressFill').style.width=(p*100)+'%';route.style.strokeDashoffset=length*(1-p);const point=route.getPointAtLength(length*p),next=route.getPointAtLength(Math.min(length,length*p+1)),prev=route.getPointAtLength(Math.max(0,length*p-1));const angle=Math.atan2(next.y-prev.y,next.x-prev.x)*180/Math.PI+90;car.setAttribute('transform',`translate(${point.x} ${point.y}) rotate(${angle})`)}
+document.getElementById('trip-story').classList.add('is-ready');window.addEventListener('scroll',()=>{if(!pending){pending=true;requestAnimationFrame(update)}},{passive:true});window.addEventListener('resize',update);update();
 })();
