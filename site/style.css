@@ -338,3 +338,5 @@ body{background:var(--md-sys-color-surface);color:var(--md-sys-color-on-surface)
 .btn.pri:active{background:color-mix(in srgb,var(--text) 12%,var(--md-sys-color-primary))}
 .btn.out:hover,.nav-video:hover{background:var(--md-sys-color-surface-container-high)}
 :focus-visible{outline:2px solid var(--blue-text);outline-offset:4px}
+/* The home demo disclaimer occupies its own footer row, never a logo column. */
+.foot #trip-footnote{grid-column:1/-1;max-width:900px;margin:0;font-size:13px;line-height:1.5}
