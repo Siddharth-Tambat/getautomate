@@ -143,3 +143,6 @@
 main .video-overview{max-width:1200px;padding-left:var(--margin);padding-right:var(--margin)}
 #home-benefits.benefits{padding-left:var(--margin);padding-right:var(--margin)}
 @media(min-width:701px){#trip-story .live-stats h2{height:2.6em;min-height:2.6em}}
+
+/* Give the approved supporting sentence enough room on desktop; narrow screens still wrap. */
+#trip-story .fixed-intro p{max-width:960px}
