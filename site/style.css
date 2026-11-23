@@ -5,7 +5,7 @@
   --text: #E5E7EB; --muted: #9CA3AF; --soft: #CBD5E1;
   --blue: #3B82F6; --blue-text: #93C5FD; --amber: #F59E0B; --green: #22C55E; --red: #EF4444; --violet: #8B5CF6; --violet-text: #C4B5FD;
   --r-s: 12px; --r-m: 20px; --r-l: 28px;
-  --gap: 12px; --margin: 48px; --section: 96px;
+  --gap: 12px; --margin: 48px; --section: 64px;
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
@@ -140,10 +140,10 @@ h2 { font-size: 40px; letter-spacing: -.02em; margin: 0 0 8px; line-height: 1.15
 .offer-over [data-offer] { display: none !important; }
 
 /* Wide pages: pricing and roadmap */
-.page { max-width: 1104px; margin: 0 auto; padding: 56px var(--margin) 0; }
+.page { max-width: 1104px; margin: 0 auto; padding: 40px var(--margin) 0; }
 .page h1 { font-size: 48px; letter-spacing: -.02em; line-height: 1.1; margin: 0 0 12px; }
 .page .lead { font-size: 19px; color: var(--soft); margin: 0 0 32px; max-width: 720px; }
-.page .pt { font-size: 30px; letter-spacing: -.01em; margin: 72px 0 16px; }
+.page .pt { font-size: 30px; letter-spacing: -.01em; margin: 48px 0 16px; }
 .page .faq { max-width: 760px; }
 .page .faq p { color: var(--soft); }
 .cmp-wrap { overflow-x: auto; border-radius: var(--r-m); background: var(--surface); }
@@ -199,10 +199,10 @@ h2 { font-size: 40px; letter-spacing: -.02em; margin: 0 0 8px; line-height: 1.15
 }
 
 /* Get the app + contact */
-.get { max-width: 1104px; margin: var(--section) auto 0; border-radius: var(--r-l); padding: 48px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: center; }
+.get { max-width: 1104px; margin: var(--section) auto 0; border-radius: var(--r-l); padding: 32px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: center; }
 .get .sub { margin: 0; }
 .get .side { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
-.contact { max-width: 1104px; margin: var(--gap) auto 0; border-radius: var(--r-l); padding: 48px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: center; }
+.contact { max-width: 1104px; margin: var(--gap) auto 0; border-radius: var(--r-l); padding: 32px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: center; }
 .contact .sub { margin: 0; }
 .mail { font-size: 24px; font-weight: 600; color: var(--blue-text); text-decoration: none; overflow-wrap: anywhere; }
 .mail:hover { text-decoration: underline; }
@@ -228,11 +228,11 @@ h2 { font-size: 40px; letter-spacing: -.02em; margin: 0 0 8px; line-height: 1.15
 .foot .flag { width: 21px; height: 14px; border-radius: 2px; box-shadow: 0 0 0 1px #ffffff1f; }
 
 /* Doc pages */
-.doc { max-width: 760px; margin: 0 auto; padding: 56px var(--margin) 0; }
+.doc { max-width: 760px; margin: 0 auto; padding: 40px var(--margin) 0; }
 .doc h1 { font-size: 48px; letter-spacing: -.02em; line-height: 1.1; margin: 0 0 12px; }
 .doc .lead { font-size: 19px; color: var(--soft); margin: 0 0 8px; }
 .doc .updated { font-size: 13px; color: var(--muted); margin: 0; }
-.doc h2 { font-size: 26px; margin: 48px 0 12px; letter-spacing: -.01em; }
+.doc h2 { font-size: 26px; margin: 32px 0 12px; letter-spacing: -.01em; }
 .doc h3 { font-size: 18px; margin: 24px 0 8px; }
 .doc p, .doc li { color: var(--soft); }
 .doc ul, .doc ol { padding-left: 22px; }
@@ -269,7 +269,7 @@ h2 { font-size: 40px; letter-spacing: -.02em; margin: 0 0 8px; line-height: 1.15
   .grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 760px) {
-  :root { --margin: 16px; --section: 56px; }
+  :root { --margin: 16px; --section: 40px; }
   .nav { height: 60px; gap: 12px; }
   .nav .links a:not(.btn) { display: none; }
   .hero { grid-template-columns: 1fr; padding: 32px var(--margin) 32px; gap: 24px; }

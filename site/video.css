@@ -1,6 +1,6 @@
 .video-watch{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:10px 20px;border:1px solid var(--border);border-radius:24px;background:var(--surface);color:var(--blue-text);font:inherit;cursor:pointer}
 #trip-story .video-watch{margin-top:16px;font-size:14px}
-.video-overview{max-width:1104px;margin:0 auto;padding:64px 48px;display:grid;grid-template-columns:1fr 230px;align-items:center;gap:64px}
+.video-overview{max-width:1104px;margin:0 auto;padding:32px 48px;display:grid;grid-template-columns:1fr 230px;align-items:center;gap:40px}
 .video-overview h2{font-size:36px;line-height:1.2;margin:12px 0 16px}
 .video-overview p{color:var(--muted);font-size:18px}
 .video-overview .video-note{font-size:13px;margin-top:16px}
@@ -18,6 +18,11 @@
 #overviewPlayer iframe{display:block;border:0;aspect-ratio:9/16;width:100%;height:min(65svh,640px);margin:12px 0;background:var(--surface)}
 .overview-dialog>a{font-size:14px}.video-watch:focus-visible,.video-poster:focus-visible,.video-close:focus-visible{outline:3px solid var(--blue-text);outline-offset:3px}
 body:has(.overview-dialog[open]){overflow:hidden}
-@media(max-width:700px){.video-overview{grid-template-columns:1fr;gap:24px;padding:40px 24px}.video-overview h2{font-size:30px}.video-poster{margin:auto}.video-overview p{font-size:16px}#trip-story .video-watch{margin-top:8px;font-size:13px;padding:8px 14px}#trip-story .story-panel{height:228px}#trip-story .stage{grid-template-rows:228px minmax(140px,1fr) auto}#trip-story .stage:not([data-chapter="0"]) .video-watch{display:none}}
+@media(max-width:700px){.video-overview{grid-template-columns:1fr;gap:24px;padding:24px 24px}.video-overview h2{font-size:30px}.video-poster{margin:auto}.video-overview p{font-size:16px}#trip-story .video-watch{margin-top:8px;font-size:13px;padding:8px 14px}#trip-story .story-panel{height:228px}#trip-story .stage{grid-template-rows:228px minmax(140px,1fr) auto}#trip-story .stage:not([data-chapter="0"]) .video-watch{display:none}}
 @media(max-width:700px) and (max-height:700px){#trip-story .story-panel{height:196px}#trip-story .stage{grid-template-rows:196px minmax(100px,1fr) auto}}
 #trip-story .stage:not([data-chapter="0"]) .video-watch{display:none}
+
+/* Avoid stacking video bottom padding with the next section’s full top padding. */
+.video-overview + .section{padding-top:24px}
+.trust:has(+ .video-overview){padding-top:24px;padding-bottom:0}
+@media(max-width:700px){.video-overview + .section{padding-top:16px}.trust:has(+ .video-overview){padding-top:16px;gap:8px}.trust:has(+ .video-overview) .pill{font-size:13px;padding:6px 10px}}
