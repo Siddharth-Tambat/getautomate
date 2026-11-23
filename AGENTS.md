@@ -42,7 +42,7 @@ design spec and screenshots tooling live in the private `vt` repository (`Siddha
    owner to request indexing for it in Search Console (URL inspection → Request indexing).
 
 ## Layout
-- `site/index.html` home (design A, 17 Nov 2026): hero, Trips and Fuel bands, feature cards, screenshots, pricing
+- `site/index.html` home: approved cinematic trip story A (23 Nov 2026), Trips and Fuel bands, feature cards, screenshots, pricing
   (`#pricing`), get the app, contact.
 - `site/pricing.html` (plan cards, comparison table, pricing FAQ; must match vt `docs/design/pricing-plan.md`),
   `roadmap.html` (public "Coming next" / "Exploring"; only items the owner has agreed to show, no dates).
@@ -73,3 +73,8 @@ Set 18 Nov 2026; don't loosen without the owner's yes. Only the owner has write 
 no force-push, no deletion. The `github-pages` environment deploys from `main` only. Fork pull requests wait for
 approval to run workflows (all outside contributors). Actions: GitHub-owned only, pinned by full SHA. Default
 workflow token is read-only. Wiki and projects off. Secret scanning, push protection and Dependabot alerts on.
+
+## Cinematic trip story (23 Nov 2026)
+Home hero uses `trip-story.css` (scoped to `#trip-story`) and `trip-story.js`, plain SVG/JS without external assets. Start trip then scroll or use chapter buttons: recording, FASTag toll, fuel confirmation, summary. Fictional 42 km / 48 driving minutes; estimated fuel 3.36 L at ₹100/L = ₹336, toll ₹85, trip cost ₹421. Fuel bought ₹2,000 is separate and requires confirmation. No real map coordinates or Google tiles. Keep reduced-motion support, keyboard chapter controls, mobile layout and the estimate/setup disclosures. Deployment follows the repository’s Pages workflow on main.
+
+Trip story follow-up: owner selected inline B. Information stays on the left, the car uses the existing lighter blue token with a bright outline. Trip summary keeps the large headline and distance typography, with an app-inspired cost card. The route finishes at 78% of the scroll section; the remaining 22% holds the complete summary without trapping scroll. Estimate/demo note is linked by * to the footer; no interstitial disclosure strip.
