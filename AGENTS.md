@@ -166,3 +166,5 @@ Final homepage accent preference (owner, 24 Nov): Expenses amber-orange; Garage 
 
 ## Closed beta section (owner selected C, 24 Nov)
 Replace home-benefits with option C beta section, at that original location. Three links in order: Google Group, Play tester opt-in, Play listing; same Google account across all three. Header CTA on every page says Join the beta and targets index.html#beta. Bottom get section also points to beta, with no Coming soon badge. Closed-test access requires the first two steps; do not imply public availability or free paid features.
+
+Social preview correction (owner approved, 24 Nov): og.jpg uses the approved refreshed image with “First 50 trips free”. All ten pages reference the same content-hashed image query to refresh crawler image caches when the asset changes. Export at 1200×630; update the hash whenever the image changes.
