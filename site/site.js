@@ -21,7 +21,9 @@
       strip.prepend(...cloneSet());
       strip.append(...cloneSet());
       strip.classList.add('is-looping');
-      let span = 0, position = 0, previous = 0, hovered = false, focused = false, paused = false, visible = false;
+      let span = 0, position = 0, previous = 0, hovered = false, focused = false, paused = false, visible = false, touching = false, holdUntil = 0;
+      // Touch works like hover: still while a finger is on the strip or it is still gliding, then drifting again.
+      const holding = () => touching || performance.now() < holdUntil;
       const pause = document.createElement('button');
       pause.type = 'button';
       const label = () => { pause.textContent = paused ? 'Resume' : 'Pause'; pause.setAttribute('aria-label', paused ? 'Resume screenshot scrolling' : 'Pause screenshot scrolling'); };
@@ -39,13 +41,18 @@
       strip.addEventListener('pointerleave', () => { hovered = false; });
       strip.parentElement.addEventListener('focusin', () => { focused = true; });
       strip.parentElement.addEventListener('focusout', (e) => { focused = strip.parentElement.contains(e.relatedTarget); });
-      strip.addEventListener('pointerdown', (e) => { if (e.pointerType !== 'mouse') { paused = true; label(); } });
-      strip.addEventListener('scroll', () => { if (paused || hovered || focused) position = strip.scrollLeft; }, { passive: true });
+      strip.addEventListener('pointerdown', (e) => { if (e.pointerType !== 'mouse') touching = true; });
+      const release = () => { if (touching) { touching = false; holdUntil = performance.now() + 2500; } };
+      ['pointerup', 'pointercancel', 'touchend', 'touchcancel'].forEach((type) => strip.addEventListener(type, release, { passive: true }));
+      strip.addEventListener('scroll', () => {
+        if (holding()) holdUntil = Math.max(holdUntil, performance.now() + 2500);
+        if (paused || hovered || focused || holding()) position = strip.scrollLeft;
+      }, { passive: true });
       new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; }).observe(strip);
       const frame = (time) => {
         const elapsed = previous ? Math.min(time - previous, 50) : 0;
         previous = time;
-        if (visible && !document.hidden && !motion.matches && !paused && !hovered && !focused && span) {
+        if (visible && !document.hidden && !motion.matches && !paused && !hovered && !focused && !holding() && span) {
           // Decreasing scrollLeft makes screenshots drift gently to the right.
           position -= elapsed * .018;
           while (position < span * .5) position += span;
