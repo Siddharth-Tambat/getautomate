@@ -231,6 +231,7 @@ h2 { font-size: 40px; letter-spacing: -.02em; margin: 0 0 8px; line-height: 1.15
 .foot { margin-top: var(--section); border-top: 1px solid #ffffff10; padding: 32px var(--margin) 48px; display: grid; grid-template-columns: auto 1fr; gap: 16px 32px; align-items: center; font-size: 14px; color: var(--muted); }
 .foot nav { display: flex; gap: 12px 24px; justify-content: flex-end; flex-wrap: wrap; }
 .foot a { text-decoration: none; color: var(--muted); }
+.foot a.logo { color: var(--text); }
 .foot a:hover { color: var(--text); }
 .foot .legal { grid-column: 1 / -1; font-size: 12px; margin: 0; }
 .foot .made { grid-column: 1 / -1; margin: 0; display: inline-flex; align-items: center; gap: 6px; color: var(--soft); }
