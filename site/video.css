@@ -26,3 +26,15 @@ body:has(.overview-dialog[open]){overflow:hidden}
 .video-overview + .section{padding-top:24px}
 .trust:has(+ .video-overview){padding-top:24px;padding-bottom:0}
 @media(max-width:700px){.video-overview + .section{padding-top:16px}.trust:has(+ .video-overview){padding-top:16px;gap:8px}.trust:has(+ .video-overview) .pill{font-size:13px;padding:6px 10px}}
+
+/* Approved A: a contextual guide in the Trips band. */
+.trips-guide-watch{display:flex;gap:16px;align-items:center;text-align:left;width:100%;border:1px solid var(--outline);border-radius:20px;padding:16px;margin-top:26px;min-height:80px;background:var(--surface);color:var(--text);font:inherit;cursor:pointer}
+.trips-guide-watch:hover{background:var(--high);border-color:var(--border)}
+.trips-guide-watch:focus-visible{outline:3px solid var(--blue-text);outline-offset:4px}
+.trips-guide-play{width:48px;height:48px;display:grid;place-items:center;flex:none;border-radius:50%;background:var(--blue);color:var(--bg)}
+.trips-guide-watch b,.trips-guide-watch small{display:block}
+.trips-guide-watch b{font-size:16px;line-height:1.5}
+.trips-guide-watch small{color:var(--muted);font-size:13px;line-height:1.5}
+.overview-dialog[data-layout="landscape"]{width:min(800px,94vw)}
+.overview-dialog[data-layout="landscape"] #overviewPlayer iframe{aspect-ratio:16/9;height:auto;max-height:70svh}
+@media(max-width:700px){.trips-guide-watch{gap:12px;padding:14px}.trips-guide-watch b{font-size:15px}}
