@@ -1,4 +1,14 @@
 (()=>{if(!document.getElementById("trip-story"))return;let arrivalTimer;const routeLength=document.getElementById("routeDraw").getTotalLength();const track=document.querySelector('.drive-track'),stage=document.querySelector('#trip-story .drive-stage'),route=document.getElementById('routeDraw'),car=document.getElementById('car');const length=route.getTotalLength();route.style.strokeDasharray=length;let pending=false;
+// Both maps share the same route geometry and scroll progress.
+const phoneMap=document.querySelector('#trip-story .map').cloneNode(true);
+phoneMap.removeAttribute('class');phoneMap.setAttribute('class','phone-route-map');
+phoneMap.setAttribute('aria-label','The same sample trip, recorded in AutoMate');
+const phoneIds=new Map();
+phoneMap.querySelectorAll('[id]').forEach(el=>{const id=el.id;phoneIds.set(id,'phone-'+id);el.id='phone-'+id});
+phoneMap.querySelectorAll('*').forEach(el=>{for(const attr of [...el.attributes]){let value=attr.value;for(const [oldId,newId] of phoneIds)value=value.replaceAll('url(#'+oldId+')','url(#'+newId+')');if(value!==attr.value)el.setAttribute(attr.name,value)}});
+document.querySelector('#trip-story .phone-map').replaceChildren(phoneMap);
+const phoneRoute=phoneMap.querySelector('#phone-routeDraw'),phoneCar=phoneMap.querySelector('#phone-car');
+phoneRoute.style.strokeDasharray=length;
 let mapPreviousProgress=0,mapNoticeTimer;const notice=document.getElementById('mapNotice');
 const noticePositions=new Map();
 function placeDecorations(){
@@ -73,17 +83,19 @@ function fitMap(){
  const aspect=box.width/box.height;
  const width=Math.max(720,710*aspect),height=width/aspect;
  map.setAttribute('viewBox',`${1000-width/2} ${425-height/2} ${width} ${height}`);
+ const phoneBox=phoneMap.getBoundingClientRect();
+ if(phoneBox.width&&phoneBox.height){const aspect=phoneBox.width/phoneBox.height,width=Math.max(720,710*aspect);phoneMap.setAttribute('viewBox',`${1000-width/2} ${425-width/aspect/2} ${width} ${width/aspect}`)}
  noticePositions.clear();
 }
 function fitPhone(){
  if(matchMedia('(max-width:700px)').matches)return;
- const pane=document.querySelector('#trip-story .app-half');
- const availableHeight=document.querySelector('#trip-story .intro').clientHeight;
+ const pane=document.querySelector('#trip-story .intro');
+ const availableHeight=document.querySelector('#trip-story .visual').clientHeight;
  const gap=parseFloat(getComputedStyle(pane).gap)||26;
- const availableWidth=Math.max(150,pane.clientWidth-gap-210);
- const scale=Math.min(.64,(availableHeight-16)/1000,availableWidth/450);
+ const availableWidth=Math.max(150,(pane.clientWidth-gap)*.4-24);
+ const scale=Math.min(.82,(availableHeight-16)/1000,availableWidth/450);
  document.querySelector('#trip-story .device-column').style.setProperty('--phone-scale',Math.max(.25,scale));
 }
-function update(){pending=false;if(matchMedia('(max-width:700px)').matches)return;const rect=track.getBoundingClientRect();const range=track.offsetHeight-stage.offsetHeight;const raw=Math.max(0,Math.min(1,(parseFloat(getComputedStyle(stage).top)-rect.top)/Math.max(1,range)));const p=Math.min(1,raw/.8);const done=p>=.999;const paid=p>=.44;const refuel=p>=.7;document.getElementById('fuelReview').classList.toggle('received',refuel);document.getElementById('historyFuel').classList.toggle('logged',refuel);const km=(p*42).toFixed(1),mins=Math.round(p*48),fuel=Math.round(p*336),cost=fuel+(paid?85:0);text('demo-km',km);text('demo-time',mins);text('demo-cost','₹'+cost);text('demo-fuel','₹'+fuel);text('demo-toll',paid?'₹85':'₹0');text('sideKm',km+' km');text('sideTime',mins+' min');text('sideCost','₹'+cost);mapEvents(p);text('appstatus',done?'Trip saved':'Recording trip');text('sideTitle',done?'Trip saved':refuel?'Fuel payment ready to review':paid?'Toll detected and added':'Recording your trip');text('phase',done?'04 / 04 · Trip saved':refuel?'03 / 04 · Fuel payment':paid?'02 / 04 · FASTag toll':'01 / 04 · Recording');document.getElementById('log').firstElementChild.textContent=done?'Trip saved · 42 km':refuel?'Fuel entry ready to review':paid?'FASTag payment added':'Recording your drive';document.getElementById('historyToll').classList.toggle('logged',paid);document.getElementById('historySaved').classList.toggle('logged',done);document.getElementById('progressFill').style.width=(p*100)+'%';route.style.strokeDashoffset=length*(1-p);const point=route.getPointAtLength(length*p),next=route.getPointAtLength(Math.min(length,length*p+1)),prev=route.getPointAtLength(Math.max(0,length*p-1));const angle=Math.atan2(next.y-prev.y,next.x-prev.x)*180/Math.PI+90;car.setAttribute('transform',`translate(${point.x} ${point.y}) rotate(${angle})`)}
+function update(){pending=false;if(matchMedia('(max-width:700px)').matches)return;const rect=track.getBoundingClientRect();const range=track.offsetHeight-stage.offsetHeight;const raw=Math.max(0,Math.min(1,(parseFloat(getComputedStyle(stage).top)-rect.top)/Math.max(1,range)));const p=Math.min(1,raw/.8);const done=p>=.999;const paid=p>=.44;const refuel=p>=.7;document.getElementById('fuelReview').classList.toggle('received',refuel);document.getElementById('historyFuel').classList.toggle('logged',refuel);const km=(p*42).toFixed(1),mins=Math.round(p*48),fuel=Math.round(p*336),cost=fuel+(paid?85:0);text('demo-km',km);text('demo-time',mins);text('demo-cost','₹'+cost);text('demo-fuel','₹'+fuel);text('demo-toll',paid?'₹85':'₹0');text('sideKm',km+' km');text('sideTime',mins+' min');text('sideCost','₹'+cost);mapEvents(p);text('appstatus',done?'Trip saved':'Recording trip');text('sideTitle',done?'Trip saved':refuel?'Fuel payment ready to review':paid?'Toll detected and added':'Recording your trip');text('phase',done?'04 / 04 · Trip saved':refuel?'03 / 04 · Fuel payment':paid?'02 / 04 · FASTag toll':'01 / 04 · Recording');document.getElementById('log').firstElementChild.textContent=done?'Trip saved · 42 km':refuel?'Fuel entry ready to review':paid?'FASTag payment added':'Recording your drive';document.getElementById('historyToll').classList.toggle('logged',paid);document.getElementById('historySaved').classList.toggle('logged',done);document.getElementById('progressFill').style.width=(p*100)+'%';route.style.strokeDashoffset=length*(1-p);const point=route.getPointAtLength(length*p),next=route.getPointAtLength(Math.min(length,length*p+1)),prev=route.getPointAtLength(Math.max(0,length*p-1));const angle=Math.atan2(next.y-prev.y,next.x-prev.x)*180/Math.PI+90;car.setAttribute('transform',`translate(${point.x} ${point.y}) rotate(${angle})`);phoneRoute.style.strokeDashoffset=length*(1-p);phoneCar.setAttribute('transform',car.getAttribute('transform'))}
 document.getElementById('trip-story').classList.add('is-ready');window.addEventListener('scroll',()=>{if(!pending){pending=true;requestAnimationFrame(update)}},{passive:true});window.addEventListener('resize',()=>{fitPhone();fitMap();update()});fitPhone();fitMap();update();
 })();
