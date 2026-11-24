@@ -23,6 +23,7 @@ design spec and screenshots tooling live in the private `vt` repository (`Siddha
    clipped, touch targets 48px for buttons.
 6. **Screenshots** come only from an emulator with vt's fictional demo garage (`scripts/screenshots.sh`), never the
    owner's phone. Look at each one for personal data before adding it. Stored as 450×1000 JPEGs in `site/img/`.
+   On How it works, screenshot rows (`.shot`) hold exactly three phones, never two or four (owner, 24 Nov 2026).
 7. **No maker name.** The brand is "AutoMate"; contact is hello@getautomate.in.
 8. **Google Play.** Until the app is live, the Play badge is a label ("Coming soon"), not a link. When it's live,
    link it to the listing and use Google's official badge.
