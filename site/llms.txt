@@ -6,7 +6,7 @@ Key facts:
 
 - Trips start and end automatically when the phone connects to and disconnects from the vehicle's Bluetooth (car stereo, hands-free kit or the scooter's own Bluetooth). GPS route, stops, replay, city and highway split, and trip cost. Trips can also be started by hand.
 - Fuel fill-ups, FASTag tolls and other vehicle payments are picked up from payment notifications (SMS, UPI, bank and FASTag apps, Gmail previews) on the phone. AutoMate has no SMS permission.
-- Also: mileage (km/L) for city and highway, expenses, garage log with service reminders (date or km), PUC and insurance reminders, and a `.automate` backup file to move to a new phone.
+- Also: mileage (km/L) for city and highway, expenses, garage log with bills, job cards and service reminders (date or km), and a `.automate` backup file to move to a new phone.
 - FASTag recharge opens a compatible UPI app for recipient and amount review. Balance updates from matched issuer alerts, not the payment handoff.
 - Saved places show visit patterns. Trip money received tracks contributions, repayments and reimbursements alongside trip cost. Garage bills, photos and PDFs stay on the phone.
 - FASTag features are for cars only; everything else works for bikes and scooters.
