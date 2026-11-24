@@ -340,9 +340,25 @@ body{background:var(--md-sys-color-surface);color:var(--md-sys-color-on-surface)
 .btn.pri:active{background:color-mix(in srgb,var(--text) 12%,var(--md-sys-color-primary))}
 .btn.out:hover,.nav-video:hover{background:var(--md-sys-color-surface-container-high)}
 :focus-visible{outline:2px solid var(--blue-text);outline-offset:4px}
-/* The home demo disclaimer occupies its own footer row, never a logo column. */
-.foot #trip-footnote{grid-column:1/-1;max-width:900px;margin:0;font-size:13px;line-height:1.5}
 
 /* Seamless screenshot drift keeps manual scrolling and explicit motion controls. */
 .strip.is-looping{scroll-snap-type:none;scroll-behavior:auto}
 .arrows button:not([data-dir]){width:auto;padding:0 16px;font-size:14px}
+
+/* Owner-selected beta option C. */
+.nav .links .btn { white-space: nowrap; }
+.beta-sec .pill { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; padding: 6px 12px; border-radius: 999px; background: color-mix(in srgb, var(--green) 18%, transparent); color: var(--text); margin-bottom: 14px; }
+.beta-sec .pill::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
+.beta-row { list-style: none; margin: 24px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); counter-reset: s; }
+.beta-row li { counter-increment: s; padding: 20px; border-radius: var(--r-m); background: var(--bg); box-shadow: inset 0 0 0 1px var(--outline); display: flex; flex-direction: column; gap: 6px; }
+.beta-row li::before { content: "Step " counter(s); font-size: 13px; color: var(--blue-text); font-weight: 600; }
+.beta-row b { color: var(--text); font-size: 17px; }
+.beta-row span { color: var(--muted); font-size: 15px; flex: 1; }
+.beta-row .btn { align-self: flex-start; margin-top: 10px; min-height: 44px; }
+.beta-sec { max-width: 1104px; margin: var(--section) auto 0; border-radius: var(--r-l); padding: 32px; }
+.beta-sec .sub { margin: 0; }
+.beta-sec ul.do { margin: 18px 0 0; padding-left: 20px; color: var(--soft); }
+@media (max-width: 760px) { .beta-row { grid-template-columns: 1fr; } }
+
+.beta-row .btn{min-height:48px}.beta-sec .pill{background:var(--surface)}
+@media(max-width:760px){.beta-sec{margin:40px 16px 0;padding:24px}}

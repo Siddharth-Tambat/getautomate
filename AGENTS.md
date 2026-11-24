@@ -96,7 +96,7 @@ arrival then “Trip logged”. Positions are cached per landmark/map geometry a
 Preferred sides: toll right, fuel left, destination above. Collision checks reserve clearance around the
 entire route, markers and logo. Suppress receipts if a constrained window has no clear position.
 Reduced motion disables receipt transitions. Counter row is transparent; no “Scroll to travel” or star.
-Keep the unstarred estimate/setup disclosure in the footer.
+Footer demo/estimate/setup disclosure removed at the owner’s request on 24 Nov; contextual scene and Expenses disclosures remain.
 
 Phones use a fixed compact chapter header, larger map and three tiles, without a nested panel scroller.
 The full mobile cost breakdown follows the pinned drive in normal page flow; desktop keeps it inline.
@@ -152,3 +152,17 @@ Trips guide A (owner approved, 24 Nov; local review): homepage Trips band contai
 For every new video, first suggest placements from the context and visitor purpose of each page, then get the owner's approval. Do not put every video on every page. Home should include new approved videos beside the matching topic; Features is the homepage anchor, not a separate page. How it works gets explanatory guides; Setup gets configuration guides only. The overview appears on Home and How it works; the Trips guide appears beside Trips on Home, How it works and Setup.
 
 `site/video.js` owns the shared catalogue (ID, title, duration label, aspect, fallback URL, placements). Existing placement slots render matching cards automatically; add a meaningful slot for a new topic when necessary. Keep the homepage overview poster. Reuse video.css and the click-to-load dialog on all pages; no autoplay or remote thumbnails. Keep plain YouTube fallback links without JS. Verify each placement, correct video/title/aspect/link, Escape/Close unloading and focus restoration, keyboard access, desktop/mobile fit and no console errors. Run asset versioning and site checks. Never publish a new video or invent its details without approval.
+
+## Garage homepage band (owner directed, 24 Nov)
+Replace the nine-card records grid with a Garage band after Fuel, using the existing band/txt/checks/pair classes, amber service token and garage + service-reminder screenshots. Keep its typography, spacing and responsive treatment consistent with Trips and Fuel. Garage costs also appear in Expenses; date/km reminders and local attachments are verified app features.
+
+Homepage refinement (owner, 24 Nov): Garage band uses existing brand blue, matching the Garage cost category, distinct from amber Fuel. Contact leads with “Have a feature in mind?” and invites ideas; issue reports are secondary. No general say-hello invitation.
+
+Expenses band (owner, 24 Nov): rename Fuel to Expenses, use expenses + fastag screenshots, explain fuel review, issuer-alert toll/balance/recharge tracking and low-balance warnings. Recharge starts in AutoMate and completes in a UPI app; never claim in-app payment completion. FASTag cars-only/setup disclosure stays visible. Existing fuel-h anchor retained.
+
+Accent revision (owner approved, 24 Nov): homepage Expenses band uses FASTag violet; Garage uses amber-orange, replacing the earlier blue direction. Existing tokens only; labels/icons accompany the accents.
+
+Final homepage accent preference (owner, 24 Nov): Expenses amber-orange; Garage violet-purple. This supersedes earlier band accent choices. Garage violet is an owner-approved homepage presentation exception, not a change to app category colours.
+
+## Closed beta section (owner selected C, 24 Nov)
+Replace home-benefits with option C beta section, at that original location. Three links in order: Google Group, Play tester opt-in, Play listing; same Google account across all three. Header CTA on every page says Join the beta and targets index.html#beta. Bottom get section also points to beta, with no Coming soon badge. Closed-test access requires the first two steps; do not imply public availability or free paid features.
