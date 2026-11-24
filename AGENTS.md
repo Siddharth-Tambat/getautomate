@@ -49,7 +49,7 @@ design spec and screenshots tooling live in the private `vt` repository (`Siddha
 - `site/index.html` home: approved cinematic trip story A (23 Nov 2026), Trips and Fuel bands, feature cards, screenshots, pricing
   (`#pricing`), get the app, contact.
 - `site/pricing.html` (plan cards, comparison table, pricing FAQ; must match vt `docs/design/pricing-plan.md`),
-  `roadmap.html` (public "Coming next" / "Exploring"; only items the owner has agreed to show, no dates).
+  `roadmap.html` (one public “What’s ahead” list; only owner-approved features, no dates).
 - `site/how-it-works.html`, `setup.html`, `faq.html`, `privacy.html` (Play's privacy policy URL),
   `delete-data.html` (Play's data deletion), `terms.html`, `404.html`.
 - SEO: every page has a canonical URL, Open Graph + Twitter tags and the share image `img/og.jpg` (1200×630);
@@ -168,3 +168,10 @@ Final homepage accent preference (owner, 24 Nov): Expenses amber-orange; Garage 
 Replace home-benefits with option C beta section, at that original location. Three links in order: Google Group, Play tester opt-in, Play listing; same Google account across all three. Header CTA on every page says Join the beta and targets index.html#beta. Bottom get section also points to beta, with no Coming soon badge. Closed-test access requires the first two steps; do not imply public availability or free paid features.
 
 Social preview correction (owner approved, 24 Nov): og.jpg uses the approved refreshed image with “First 50 trips free”. All ten pages reference the same content-hashed image query to refresh crawler image caches when the asset changes. Export at 1200×630; update the hash whenever the image changes.
+
+## Public roadmap (owner approved, 24 Nov)
+One “What’s ahead” list: iPhone support, all vehicles at a glance, shared-car records, potholes/rough roads, crash detection and reimbursement reports. Two columns on desktop, one on phones, official Material icons in brand blue. These are plans, not claims of current functionality or active implementation. Merge trips already ships; do not advertise it as upcoming. Keep feature-request contact below the list.
+
+Roadmap polish B (owner approved, 24 Nov): larger 32px Material icons, neutral iPhone/report icons, blue vehicle/household icons, amber rough-road and red crash icons. This roadmap-only icon treatment is owner-approved; app colours do not change. Cards have 28px desktop / 24px phone padding; contact starts 48px / 40px below. Hover uses a higher surface + 8% on-surface state layer; keyboard focus uses 10% and a visible blue outline. Cards stay informational (no button roles or pointer cursor), with no movement or fake action. Reduced motion disables transitions.
+
+Shared header (owner, 24 Nov): Roadmap appears before FAQ in the top navigation on all ten pages, with aria-current on roadmap.html. It follows the existing compact-screen navigation visibility.

@@ -30,4 +30,4 @@ Key facts:
 
 ## Optional
 
-- [Roadmap](https://getautomate.in/roadmap.html): features being built and ideas being explored, without dates
+- [Roadmap](https://getautomate.in/roadmap.html): planned iPhone support, all-vehicle totals, shared-car records, rough-road and crash detection, and trip reports; no dates
