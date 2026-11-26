@@ -241,3 +241,6 @@ main .video-overview{max-width:1200px;padding-left:var(--margin);padding-right:v
   #trip-story .chapter-indicator>span,#trip-story .chapter-indicator .progress{display:none}
   #trip-story .chapter-indicator small{font-size:10px}
 }
+
+/* Place the Bluetooth qualifier below the animated/static trip preview. */
+#trip-story .hero-footnote{flex:none;font-size:12px;line-height:1.5;margin:12px auto 0;text-align:center;max-width:none}

@@ -1,6 +1,6 @@
 # AutoMate
 
-> AutoMate is an Android app for Indian car owners who want automatic trip records and clearer running costs, including cars without built-in connected technology. Bikes and scooters are also supported. After setup, it records trips automatically using the phone's GPS and vehicle Bluetooth, logs FASTag tolls, and detects supported fuel payment alerts for review. No extra hardware or account is needed. Data stays on the phone; there are no AutoMate servers. In closed testing on Google Play (app ID `in.getautomate.app`), Android 12 or newer.
+> AutoMate is a personal vehicle management app for car, bike and scooter owners in India. Manage fuel, expenses, garage records and service reminders without vehicle Bluetooth. Record trips manually using phone GPS, or automatically after setup with compatible vehicle Bluetooth. Supported fuel payment alerts are prepared for review; FASTag toll tracking is for cars only. No extra hardware or account is needed. Records stay on the phone; there are no AutoMate servers. In closed testing on Google Play (app ID `in.getautomate.app`), Android 12 or newer.
 
 Key facts:
 
