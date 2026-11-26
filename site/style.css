@@ -59,8 +59,9 @@ code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .85em; 
 /* Top bar */
 .nav { position: sticky; top: 0; z-index: 5; display: flex; align-items: center; gap: 24px; padding: 0 var(--margin); height: 68px;
   background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid #ffffff12; }
-.nav .links { display: flex; align-items: center; gap: 28px; margin-left: auto; font-size: 15px; }
-.nav .links a { text-decoration: none; color: var(--muted); }
+.nav .logo { flex-shrink: 0; white-space: nowrap; }
+.nav .links { display: flex; flex-shrink: 0; align-items: center; gap: 28px; margin-left: auto; font-size: 15px; }
+.nav .links a { text-decoration: none; color: var(--muted); white-space: nowrap; }
 .nav .links a:hover, .nav .links a[aria-current] { color: var(--text); }
 .nav .links .btn { color: var(--bg); min-height: 40px; padding: 0 18px; font-size: 14px; }
 
@@ -270,6 +271,11 @@ h2 { font-size: 40px; letter-spacing: -.02em; margin: 0 0 8px; line-height: 1.15
 .faq details[open] summary::after { content: "−"; }
 .faq details > :not(summary) { margin: 0; padding: 0 20px 16px; }
 
+/* Switch before the full header can collide with the wordmark. */
+@media (max-width: 1120px) {
+  .nav .links a:not(.btn) { display: none; }
+  .nav .links { gap: 12px; }
+}
 @media (max-width: 1000px) {
   /* Two 240px phones don't fit half a row here: they share the column instead of spilling past the edge. */
   .band { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
