@@ -385,3 +385,14 @@ body{background:var(--md-sys-color-surface);color:var(--md-sys-color-on-surface)
 .page .rm-ask .mail{font-size:22px;overflow-wrap:anywhere}
 @media(max-width:760px){.rm .roadmap-grid{grid-template-columns:minmax(0,1fr);gap:16px}.page .roadmap-grid .card{padding:24px;grid-template-columns:48px minmax(0,1fr);column-gap:16px}.page .roadmap-grid .badge{width:48px;height:48px}.page .rm-ask{margin-top:40px;padding:24px;gap:24px}.page .rm-ask h2{font-size:28px}}
 @media(prefers-reduced-motion:reduce){.page .roadmap-grid .card,.page .roadmap-grid .card::before{transition:none}}
+
+/* Approved beta button A: single-line label beside the original Google Play logo. */
+.btn.beta-cta{display:inline-flex;flex-direction:row;gap:10px;min-height:48px;padding:0 18px;border:1px solid var(--border);border-radius:999px;background:var(--bg);color:var(--text);font:600 14px/1.2 system-ui,sans-serif;white-space:nowrap;transition:background .15s,border-color .15s}
+.btn.beta-cta img{width:24px;height:24px;flex:none}
+.nav .links .beta-cta{color:var(--text);min-height:48px}
+.btn.beta-cta:hover{background:var(--high);border-color:var(--blue-text)}
+.btn.beta-cta:active{background:var(--surface)}
+#get .beta-cta{min-height:56px;font-size:15px}
+#get .beta-cta img{width:26px;height:26px}
+@media(prefers-reduced-motion:reduce){.btn.beta-cta{transition:none}}
+@media(max-width:700px){.nav{gap:12px}.nav .links{gap:12px}.nav .logo{flex-shrink:0}}

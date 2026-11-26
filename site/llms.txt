@@ -1,6 +1,6 @@
 # AutoMate
 
-> AutoMate is the simple, smart, private Android app for Indian car, bike and scooter owners: a mate for your auto. After setup, it records trips automatically using the phone's GPS and vehicle Bluetooth, logs FASTag tolls, and detects supported fuel payment alerts for review. No extra hardware or account is needed. Data stays on the phone; there are no AutoMate servers. Coming soon to Google Play (app ID `in.getautomate.app`), Android 12 or newer.
+> AutoMate is an Android app for Indian car owners who want automatic trip records and clearer running costs, including cars without built-in connected technology. Bikes and scooters are also supported. After setup, it records trips automatically using the phone's GPS and vehicle Bluetooth, logs FASTag tolls, and detects supported fuel payment alerts for review. No extra hardware or account is needed. Data stays on the phone; there are no AutoMate servers. In closed testing on Google Play (app ID `in.getautomate.app`), Android 12 or newer.
 
 Key facts:
 
@@ -10,7 +10,7 @@ Key facts:
 - FASTag recharge opens a compatible UPI app for recipient and amount review. Balance updates from matched issuer alerts, not the payment handoff.
 - Saved places show visit patterns. Trip money received tracks contributions, repayments and reimbursements alongside trip cost. Garage bills, photos and PDFs stay on the phone.
 - FASTag features are for cars only; everything else works for bikes and scooters.
-- Pricing: the first 50 trips are free, and expenses, fuel, FASTag and Garage are always free. Trips after 50 are saved but locked until a plan is bought through Google Play: ₹69 a month, or ₹999 once for life (launch price ₹799 until 31 December 2026). No ads.
+- Pricing: Free includes 1 vehicle and the first 50 trips. Expenses, fuel, FASTag and Garage stay free for the included vehicle. Adding another vehicle requires Monthly or Lifetime; both paid plans include unlimited vehicles and trips. Trips after 50 are saved but locked until a plan is bought through Google Play: ₹69 a month, or ₹999 once for life (launch price ₹799 until 31 December 2026). No ads.
 - Privacy: no account, no analytics, no ads. Maps, addresses and some place lookups use Google services.
 - Made in India. Contact: hello@getautomate.in
 

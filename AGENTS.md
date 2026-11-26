@@ -35,7 +35,7 @@ design spec and screenshots tooling live in the private `vt` repository (`Siddha
    (`.claude/settings.json` → `scripts/check-hooks.sh`) makes the agent set it up if it is missing.
 10. **Voice.** "A mate for your auto": tracks trips and spending automatically, easy to set up, no extra device.
    Plain, friendly, exact (vt `docs/design/brand/personality.md`). Sentence case, no exclamation marks.
-11. **Pricing** (owner, 18 Nov 2026; free limit 50 since 23 Nov): three plans. Free: first 50 trips, and Expenses, fuel, FASTag and Garage always;
+11. **Pricing** (owner, 18 Nov 2026; free limit 50 since 23 Nov): three plans. Free: 1 vehicle and first 50 trips, with Expenses, fuel, FASTag and Garage always free for that vehicle; adding another vehicle requires Monthly or Lifetime, both with unlimited vehicles;
    trips after 50 are saved but locked. Monthly ₹69 or Lifetime ₹999 once, through Google Play, unlock all trips. Launch offer: lifetime ₹799 (20% off) until 31 Dec 2026, 23:59 IST; `site.js` hides the offer after that
    and the static HTML must then be changed back to ₹999 only. Prices appear in the home pricing section, FAQ and
    Terms; change them together and only to match the Play Console.
@@ -175,3 +175,13 @@ One “What’s ahead” list: iPhone support, all vehicles at a glance, shared-
 Roadmap polish B (owner approved, 24 Nov): larger 32px Material icons, neutral iPhone/report icons, blue vehicle/household icons, amber rough-road and red crash icons. This roadmap-only icon treatment is owner-approved; app colours do not change. Cards have 28px desktop / 24px phone padding; contact starts 48px / 40px below. Hover uses a higher surface + 8% on-surface state layer; keyboard focus uses 10% and a visible blue outline. Cards stay informational (no button roles or pointer cursor), with no movement or fake action. Reduced motion disables transitions.
 
 Shared header (owner, 24 Nov): Roadmap appears before FAQ in the top navigation on all ten pages, with aria-current on roadmap.html. It follows the existing compact-screen navigation visibility.
+
+## Audience copy (26 Nov 2026)
+Owner requested direct text updates in the existing layout, without mockups. Lead with Indian car owners without built-in connected tech: automatic phone-based trip records, fuel, FASTag, expenses and servicing together. Bluetooth triggers automatic trips after setup; the phone must travel with the driver. Keep bikes/scooters supported, fuel review and supported-alert qualifications, and the closed-test CTA accurate. FAQ explains the difference from remote vehicle location and controls. Keep homepage, How it works, FAQ/schema and llms.txt aligned.
+
+## Static mobile trip preview (owner, 26 Nov 2026)
+Approved hero: “Wish your car had connected tech? Meet AutoMate.” Supporting line: “Automatic trip tracking, fuel, FASTag and service records—all together on your Android phone.” At 700px and below show a full readable phone preview with its cloned SVG map, route/car, trip stats, cost breakdown and pending fuel payment. The separate desktop map is hidden to avoid shrinking the phone details. Render fixed progress .874 (36.7 km, 42 min, ₹294 estimated fuel + ₹85 FASTag = ₹379); ₹2,000 purchased fuel stays separate and pending review. No mobile scroll animation, sticky stage or scroll runway. Owner removed the “Illustrative preview · Fictional data · Fuel estimated” line on mobile; desktop retains it. Desktop keeps its existing scroll-driven scene. Check crossing the breakpoint in both directions.
+
+Beta destination (owner, 26 Nov 2026): header CTA on all pages and lower homepage CTA say “Join the beta” / “on Google Play” in two lines to fit the mobile header. Beta and lower banners explicitly name Google Play. Keep the existing beta-instructions links and three-step group → opt-in → install flow.
+
+Beta CTA design A (owner selected, 26 Nov 2026): all header CTAs and lower homepage beta CTA use the approved dark pill with a visible border, original full-colour Play logo left of a single “Join the beta” label. Header height 48px; banner height 56px with 26px logo. Accessible name includes “on Google Play”. Hover raises the surface and uses the brand text-tint border, with no movement. Replaces the previous two-line subtitle treatment; keep beta instructions and Google Play banner headings. Asset: `site/img/google-play.svg`, sourced unchanged from the Play Store header.
